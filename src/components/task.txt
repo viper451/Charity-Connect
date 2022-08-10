@@ -1,0 +1,3 @@
+1. data deleting from admin panel
+2. add task from form in volunteer network
+3. make responsive

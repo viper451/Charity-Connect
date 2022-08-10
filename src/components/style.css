@@ -1,0 +1,111 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.login-text{
+    font-weight: bold;
+}
+.nav-custom{
+    color:rgb(68, 68, 68) !important;
+    text-decoration: inherit !important;
+}
+
+.admin-link{
+    text-decoration: inherit !important;
+    color: green;
+}
+
+.admin-link:hover{
+    color:black;
+}
+
+.login-box{
+    display: block;
+    min-height: 350px;
+
+    width: 90%;
+    max-width: 600px;
+    border: 1px solid rgb(156, 156, 156);
+    padding: 20px;
+    position: relative;
+}
+
+
+.register-box{
+    display: block;
+    min-height: 500px;
+    max-width: 600px;
+    border: 1px solid rgb(156, 156, 156);
+    padding: 20px;
+    position: relative;
+}
+
+
+.event-box{
+    display: block;
+    min-height: 400px;
+    max-width: 600px;
+    border: 1px solid rgb(156, 156, 156);
+    padding: 20px;
+    position: relative;
+}
+
+.mini-box{
+     
+    display: block;
+    position: absolute;
+    top: 20%;
+    left: 18%;
+
+}
+
+
+.reg-mini-box{
+    border: 1px solid black;
+    display: block;
+    position: absolute;
+    top: 20%;
+    left: 18%;
+
+}
+
+
+
+
+
+.card-text{
+    color: black;   
+    font-weight: bold;
+}
+
+
+ 
+.card-custom{
+    border: none !important;
+    background-color:gold ;
+    color: aliceblue;
+    font-size:14px;
+    border-radius: 20px;
+    transition: .2s;
+    box-shadow: 5px 5px 18px rgb(158, 158, 158);
+}
+
+.card-custom:hover{
+    transform: scale(1.02);
+    box-shadow: 5px 5px 5px rgb(158, 158, 158);
+}
+
+.img-logo{
+     
+    display: inline;
+    margin-left: auto;
+}
+
+ 
+
+.btn-custom{
+    width: 400px;
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 50px;
+    margin: auto;
+    display: block;
+}
