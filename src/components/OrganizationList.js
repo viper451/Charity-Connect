@@ -1,51 +1,49 @@
-import React, { useState , useEffect} from 'react';
-import { Table } from 'reactstrap';
-import TableData from './TableData';
-import axios from 'axios';
-import OrganizationTableData from './OrganizationTableData';
-
-
+import React, { useState, useEffect } from "react";
+import { Table } from "reactstrap";
+import TableData from "./TableData";
+import axios from "axios";
+import OrganizationTableData from "./OrganizationTableData";
 
 const onClickDelete = async (id) => {
-    
   const variables = {
-      id: id,
-  }
+    id: id,
+  };
 
-  const response=await axios.post('http://localhost:3006/deleteActivityOrganization', variables)
-      // .then(response => {
-      //     if (response.data.success) {
-      //        console.log("DELETED")
-      //     } else {
-      //         alert('Failed to Remove From Favorites')
-      //     }
-      // })
-//       console.log(response)
-//        useEffect(()=>{
-//    TableData()
-//  },[information]);
-       
-}
+  const response = await axios.post(
+    "http://localhost:3006/deleteActivityOrganization",
+    variables
+  );
+  // .then(response => {
+  //     if (response.data.success) {
+  //        console.log("DELETED")
+  //     } else {
+  //         alert('Failed to Remove From Favorites')
+  //     }
+  // })
+  //       console.log(response)
+  //        useEffect(()=>{
+  //    TableData()
+  //  },[information]);
+};
 
 const OrganizationList = () => {
-  const [datas,setData]=useState([]);
+  const [datas, setData] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:3006/organizationinfo')
-    .then(response => response.json())
-    .then(data => {
-        setData(data)
-    });
-  },[datas]);
+    fetch("http://localhost:3006/organizationinfo")
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+      });
+  }, [datas]);
 
-    // console.log(datas) 
+  // console.log(datas)
 
-    return (
-        <>
-        <h4 className="text-center mt-5">Registered Organization List</h4>
-        <Table style={{maxWidth:"1000px"}} className="mx-auto mt-5">
+  return (
+    <>
+      <h4 className="text-center mt-5">Registered Organization List</h4>
+      <Table style={{ maxWidth: "1000px" }} className="mx-auto mt-5">
         <thead>
           <tr>
-             
             <th>Orgnazization Name</th>
             <th>Email</th>
             <th>Registration Date</th>
@@ -54,13 +52,12 @@ const OrganizationList = () => {
             <th>Action</th>
           </tr>
         </thead>
-        {
-          datas.map(key => <OrganizationTableData onClickDelete={onClickDelete} info={key}/>)
-        }
-        
+        {datas.map((key) => (
+          <OrganizationTableData onClickDelete={onClickDelete} info={key} />
+        ))}
       </Table>
-      </>
-    );
+    </>
+  );
 };
 
 export default OrganizationList;
