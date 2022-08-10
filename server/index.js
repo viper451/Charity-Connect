@@ -7,10 +7,7 @@ app.use(bodyParser.json()); // body parser --> app
 app.use(bodyParser.urlencoded({ extended: false })); // use body parser middleware for url encoded
 const ObjectId = require("mongodb").ObjectID;
 require("dotenv").config();
-// object id is needed to match data in database
-// set password from mongodb cluster
 
-// app get
 
 const MongoClient = require("mongodb").MongoClient; //required always
 
@@ -60,7 +57,7 @@ client.connect((err) => {
   });
 
   app.get("/task", (req, res) => {
-    console.log(req.query);
+    // console.log(req.query);
     collection.find({ mail: req.query.mail }).toArray((err, document) => {
       res.send(document);
     });
@@ -82,7 +79,7 @@ client.connect((err) => {
       )
       .then((result) => {
         res.send(result);
-        console.log(result);
+        // console.log(result);
         // result is to say that data is updated
       });
   });
@@ -90,7 +87,7 @@ client.connect((err) => {
   // sending/posting data to database
   app.post("/addPeople", (req, res) => {
     const pd = req.body;
-    console.log(pd);
+    // console.log(pd);
     collection.insertOne(pd).then((result) => {
       res.send(true);
     });
@@ -98,8 +95,9 @@ client.connect((err) => {
 
   //ADD ORGANIZATION EVENT AND DISPLAY IT IN ADMIN
   app.post("/eventinfoadd", (req, res) => {
+
     const pd = req.body;
-    console.log(pd);
+    // console.log(pd);
     event.insertOne(pd).then((result) => {
       res.send(true);
     });
@@ -108,8 +106,8 @@ client.connect((err) => {
   // sending/posting data to database to add organization
   app.post("/addOrganization", async (req, res) => {
     const pd = req.body;
-    console.log(req.body);
-    console.log(pd);
+    // console.log(req.body);
+    // console.log(pd);
     var checkpoint1 = await organization.findOne({
       orgnaizationname: req.body.organizationname,
     });
@@ -172,7 +170,7 @@ client.connect((err) => {
   // })
 
   app.post("/deleteActivity", (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     collection
       .findOneAndDelete({ _id: ObjectId(req.body.id) })
@@ -183,7 +181,7 @@ client.connect((err) => {
   });
 
   app.post("/deleteActivityOrganization", (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     event.findOneAndDelete({ _id: ObjectId(req.body.id) }).then((err, doc) => {
       if (err) return res.send({ success: false, err });
@@ -205,7 +203,7 @@ client.connect((err) => {
 
   // load single data
   app.get("/product/:id", (req, res) => {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     collection
       .find({ _id: ObjectId(req.params.id) })
       .toArray((err, documents) => {
