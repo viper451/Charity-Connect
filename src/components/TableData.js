@@ -16,9 +16,13 @@ import {
 // }
 
 export default function TableData(props) {
-  console.log(props);
-  useEffect(() => {}, [props.info]);
   const [information, setInformation] = useState(props.info);
+  console.log(props);
+  useEffect(() => 
+  {
+    setInformation(props.info)
+  },[props.info]);
+
   console.log(information);
 
   const { name, date, mail, location, description, organize, _id, status } =

@@ -24,10 +24,11 @@ const onClickUpdate = async (id) => {
   );
 };
 
-const VolunteerList = () => {
+const VolunteerList =  () => {
   const [datas, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3006/info")
+    
+     fetch("http://localhost:3006/info")
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -53,7 +54,7 @@ const VolunteerList = () => {
         </thead>
         {datas.map((key) => (
           <TableData
-            onClickUpdate={onClickUpdate}
+            // onClickUpdate={onClickUpdate}
             onClickDelete={onClickDelete}
             info={key}
           />
