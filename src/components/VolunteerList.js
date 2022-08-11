@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Table } from "reactstrap";
 import TableData from "./TableData";
 import axios from "axios";
+import swal from "sweetalert";
 
 const onClickDelete = async (id) => {
   const variables = {
@@ -12,6 +13,14 @@ const onClickDelete = async (id) => {
     "http://localhost:3006/deleteActivity",
     variables
   );
+  swal({
+    title: "DELETED VOLUNTEER!",
+    text: "Deleted Successfully!",
+    icon:  "success",
+    dangerMode: true,
+    button: false,
+    timer: 850,
+  });
 };
 
 const onClickUpdate = async (id,status) => {
@@ -25,6 +34,27 @@ const onClickUpdate = async (id,status) => {
     "http://localhost:3006/updateActivity",
     variables
   );
+ if(status==="Accepted")
+ {
+  swal({
+    title: "Waitlist!",
+    text: "Added to waitlist Successfully!",
+    icon:  "success",
+    dangerMode: true,
+    button: false,
+    timer: 850,
+  });
+ }
+ else{
+  swal({
+    title: "Accepted!",
+    text: "Accepted Successfully!",
+    icon:  "success",
+    dangerMode: true,
+    button: false,
+    timer: 850,
+  });
+ }
 };
 
 const VolunteerList =  () => {

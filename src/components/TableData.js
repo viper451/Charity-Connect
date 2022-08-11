@@ -9,6 +9,7 @@ import {
   CardSubtitle,
   Button,
 } from "reactstrap";
+import swal from "sweetalert";
 
 // const onClickDelete=async(id)=>{
 //   console.log(id)

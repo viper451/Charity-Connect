@@ -4,6 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory, useParams } from "react-router-dom";
 import Data from "./Data";
 import { UserContext } from "../App";
+import swal from "sweetalert";
 
 const Register = () => {
   const [user, setUser] = useContext(UserContext);
@@ -56,8 +57,16 @@ const Register = () => {
         console.log(data);
         if (data) {
           // alert("SUCCESS")
-          history.push("/success");
+          history.push("/");
         }
+      });
+      swal({
+        title: "REGISTER VOLUNTEER!",
+        text: "Register Successfully!",
+        icon:  "success",
+        dangerMode: true,
+        button: false,
+        timer: 850,
       });
   }
 
@@ -94,9 +103,18 @@ const Register = () => {
         console.log(data);
         if (data) {
           alert("SUCCESS");
-          history.push("/success");
+          history.push("/");
         }
       });
+      swal({
+        title: "REGISTER ORGNAIZATION!",
+        text: "Register Successfully!",
+        icon:  "success",
+        dangerMode: true,
+        button: false,
+        timer: 850,
+      });
+
   }
 
   return (
@@ -123,6 +141,7 @@ const Register = () => {
                 value={user.mail}
                 id="email"
                 placeholder="Enter Email"
+                
               />
             </FormGroup>
 
@@ -144,6 +163,7 @@ const Register = () => {
                 name="location"
                 id="location"
                 placeholder="Enter Location"
+                required
               />
             </FormGroup>
 
@@ -154,6 +174,7 @@ const Register = () => {
                 name="description"
                 id="description"
                 placeholder="Enter Description"
+                required
               />
             </FormGroup>
 
@@ -165,6 +186,7 @@ const Register = () => {
                 value={action.name}
                 id="organize"
                 placeholder=""
+                required
               />
             </FormGroup>
 
