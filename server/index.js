@@ -189,17 +189,64 @@ client.connect((err) => {
     });
   });
 
-  //count of user event
 
-  // app.post('/countevent',(req,res)=>{
-  // console.log(req.body.main)
-  // collection.find({ mail: req.body.mail })
-  //  .then((err, doc) => {
-  //   if (err) return res.send({ success: false, err });
-  //   res.send({ success: true, doc })
-  //  })
+  app.post("/updateActivity", (req, res) => {
+    console.log(req.body);
+    // const replacement = {
+    //   title: `The Cat from Sector ${Math.floor(Math.random() * 1000) + 1}`,
+    // };
 
-  // })
+    const filter={_id:ObjectId(req.body.id)}
+   let newstatus;
+    if(req.body.status==="Accepted")
+    {
+      newstatus={
+        $set:{
+          status:"Waiting",
+        }
+      };
+    }
+    else{
+     newstatus={
+      $set:{
+        status:"Accepted",
+      }
+    };
+  }
+   
+  collection.updateOne(filter, newstatus)
+      .then((err, doc) => {
+        if (err) return res.send({ success: false, err });
+        res.send({ success: true, doc });
+      });
+  });
+
+
+
+//   const filter = { _id: 465 };
+// // update the value of the 'z' field to 42
+// const updateDocument = {
+//    $set: {
+//       z: 42,
+//    },
+// };
+// const result = await collection.updateOne(filter, updateDocument);
+
+
+  // MongoClient.connect(url, function(err, db) {
+  //   if (err) throw err;
+  //   var dbo = db.db("mydb");
+  //   var myquery = { address: "Valley 345" };
+  //   var newvalues = { $set: {name: "Mickey", address: "Canyon 123" } };
+  //   dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
+  //     if (err) throw err;
+  //     console.log("1 document updated");
+  //     db.close();
+  //   });
+  // });
+
+
+
 
   // load single data
   app.get("/product/:id", (req, res) => {

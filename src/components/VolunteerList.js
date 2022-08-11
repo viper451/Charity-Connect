@@ -14,9 +14,12 @@ const onClickDelete = async (id) => {
   );
 };
 
-const onClickUpdate = async (id) => {
+const onClickUpdate = async (id,status) => {
   const variables = {
     id: id,
+    status:status
+  
+
   };
   const response = await axios.post(
     "http://localhost:3006/updateActivity",
@@ -54,7 +57,7 @@ const VolunteerList =  () => {
         </thead>
         {datas.map((key) => (
           <TableData
-            // onClickUpdate={onClickUpdate}
+             onClickUpdate={onClickUpdate}
             onClickDelete={onClickDelete}
             info={key}
           />

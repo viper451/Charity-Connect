@@ -17,13 +17,13 @@ import {
 
 export default function TableData(props) {
   const [information, setInformation] = useState(props.info);
-  console.log(props);
+  // console.log(props);
   useEffect(() => 
   {
     setInformation(props.info)
   },[props.info]);
 
-  console.log(information);
+  // console.log(information);
 
   const { name, date, mail, location, description, organize, _id, status } =
     information;
@@ -36,7 +36,7 @@ export default function TableData(props) {
         <td>{date}</td>
         <td>{location}</td>
         <td>{organize}</td>
-        <td>{status}</td>
+        <td><Button color={status=="Waiting"?"secondary":"success"}   onClick={() => props.onClickUpdate(_id,status)}>{status}</Button></td>
         <td>
           <Button
             onClick={() => props.onClickDelete(_id)}

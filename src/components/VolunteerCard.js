@@ -1,12 +1,17 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
   } from 'reactstrap';
+ import Badge from 'react-bootstrap/Badge';
 const VolunteerCard = (props) => {
-  
-    const {_id,name,date,mail,organize, description}=props.datas;
-    console.log(props.datas)
+
+    const {_id,name,date,mail,organize, description,status}=props.datas;
+    // const [waiting, setwaiting] = useState(props.datas.status)
+    // setwaiting(props.datas.status)
+    // console.log(JSON.stringify({}))
+    // console.log(JSON.stringify({status}) === JSON.stringify("Accepted"));
+
     
      
     
@@ -17,7 +22,11 @@ const VolunteerCard = (props) => {
             <CardTitle tag="h5">{organize} : {name}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">Date : {date}</CardSubtitle>
             <CardText>{description}</CardText>
+            
             <Button onClick={()=>props.removeWork(_id)} className="btn btn-danger">Cancel</Button>
+            <h3>
+            <Badge bg={status=="Accepted"?"success":"secondary"}>{status}</Badge>{' '}</h3>
+        
           </CardBody>
         </Card>
       
