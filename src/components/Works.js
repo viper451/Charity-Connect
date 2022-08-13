@@ -1,22 +1,33 @@
 import React,{useState,useEffect} from 'react';
 import Card from './Card';
 import Data from './Data';
+import NewCard from './NewCard';
 import axios from "axios"
 const Works = () => {
 
-    let [Events,setEvents]=useState("");
+    let [Events,setEvents]=useState();
     
 
 
-    
-    // fetch("http://localhost:3006/neweventinfo")
-    // .then((response) => response.json())
-    // .then((data) => {
-    //   setEvents(data);
-    // });
+ 
+   
+   
 
-    // console.log(Events)
+   useEffect(() => {
+
+    fetch("http://localhost:3006/neweventinfo")
+    .then((response) => response.json())
+    .then((data) => {
+      setEvents(data);
+    });
+
+//     console.log(Events)
 //    console.log(typeof(Data))
+
+ 
+ }, [Events]);
+ 
+
 
 
     
@@ -39,12 +50,12 @@ const Works = () => {
                 Data.map(data=> <Card data={data}></Card>)
             }         
             </div>
-            {/* <div className="row mt-4 justify-content-center align-items-center">
+            <div className="row mt-4 justify-content-center align-items-center">
             {
-                Events.map(data=> <Card data={data}></Card>)
+                Events?.map(data=> <NewCard data={data} filename={data.fileName}></NewCard>)
                 
             }         
-            </div> */}
+            </div>
         </div>
         
     );

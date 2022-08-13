@@ -79,7 +79,7 @@ const Login = () => {
   // countEvent
 
   return (
-    <div>
+    <div >
       <div className="login-box mx-auto">
         <div className="mini-box">
           {!user.mail && organizaiton == null && (

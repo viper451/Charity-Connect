@@ -35,7 +35,7 @@ function Organizationlistlogin() {
 	}
 
 	return (
-		<div>
+		<div className='user_card'>
 			<h1>LOGIN AS ORGANIZATION</h1>
 			<form onSubmit={loginUser}>
 				<input

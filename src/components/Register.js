@@ -20,7 +20,7 @@ const Register = () => {
   const todaydate = `${current.getDate()}/${
     current.getMonth() + 1
   }/${current.getFullYear()}`;
-  console.log(action.name);
+  // console.log(action.name);
 
   let history = useHistory();
   function saveData(event) {
@@ -82,6 +82,7 @@ const Register = () => {
     var location = document.getElementById("location").value;
 
     //console.log(name+" : "+number+" : "+mail+" : "+address);
+
     var information = {
       name: name,
       date: date,
@@ -116,7 +117,7 @@ const Register = () => {
       });
 
   }
-
+  // console.log(action==undefined)
   return (
     <div className="container">
       <div className="register-box mx-auto">
@@ -127,7 +128,8 @@ const Register = () => {
               <Input
                 type="text"
                 name="name"
-                value={user.name}
+                 value={user.name==undefined?"":user.name}
+                // value="LA"
                 id="name"
                 placeholder="Enter Name"
               />
@@ -183,9 +185,12 @@ const Register = () => {
               <Input
                 type="text"
                 name="organize"
-                value={action.name}
+              
+                  value={action===undefined?"NEEDED AS SOON AS POSSIBLE":action.name}
+                //  value="sl"
+                // onChange={(e) => setName(e.target.value)}
                 id="organize"
-                placeholder=""
+                placeholder="Enter Volunteer Work"
                 required
               />
             </FormGroup>

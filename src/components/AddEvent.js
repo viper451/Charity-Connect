@@ -120,7 +120,7 @@ const AddEvent = () => {
                      className="form-control-file"
                      onChange={onChangeFile} 
                      id="banner" 
-
+                     required
                       />
             </FormGroup>
 

@@ -72,7 +72,9 @@ const VolunteerList =  () => {
 
   return (
     <>
-      <h4 className="text-center mt-5">Registered Volunteer List</h4>
+          <div className="classfontfamily">
+      <b>
+    Registered Volunteer List </b></div>
       <Table style={{ maxWidth: "1000px" }} className="mx-auto mt-5">
         <thead>
           <tr>

@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import "./style.css";
 
 
 
@@ -38,8 +39,8 @@ const account={
 
 
   return (
-  
-    
+            
+    <div className='user_card'>
       <form onSubmit={submitHandler}>
         <h3>LOGIN AS ADMIN</h3>
 
@@ -93,5 +94,6 @@ const account={
           Forgot <Link to="#">password?</Link>
         </p> */}
       </form>
+      </div>
     );
   }

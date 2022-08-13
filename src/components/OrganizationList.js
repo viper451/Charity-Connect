@@ -4,6 +4,7 @@ import TableData from "./TableData";
 import axios from "axios";
 import OrganizationTableData from "./OrganizationTableData";
 import swal from "sweetalert";
+import "./style.css";
 const onClickDelete = async (id) => {
   const variables = {
     id: id,
@@ -45,14 +46,17 @@ const OrganizationList = () => {
       });
   }, [datas]);
 
-  // console.log(datas)
+  //  console.log(datas)
 
   return (
     <>
-      <h4 className="text-center mt-5">Registered Organization List</h4>
+    <div className="classfontfamily">
+      <b>
+    Registered Organization List </b></div>
       <Table style={{ maxWidth: "1000px" }} className="mx-auto mt-5">
         <thead>
           <tr>
+       
             <th>Orgnazization Name</th>
             <th>Email</th>
             <th>Registration Date</th>

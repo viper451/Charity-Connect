@@ -58,7 +58,9 @@ const Navigation = (props) => {
             {
               user.name && <NavItem>
               <NavLink>
-                <Link className="nav-custom" to="/addedevent">Added Events</Link>
+                <Link className="nav-custom" to="/addedevent">
+                <button className="btn btn-info btn-sm">
+                  Added Events</button></Link>
                 </NavLink>
               </NavItem>
             }
@@ -69,23 +71,15 @@ const Navigation = (props) => {
             
 
 
-            
-
-
       
-
-            
-
-
-            {/* <NavItem>
-              <NavLink className="nav-custom" target="_blank" href="https://github.com/zahid-bracu">GitHub</NavLink>
-            </NavItem> */}
 
              
                 {
                    (user.name || organizaiton!==null) && <NavItem><NavLink> 
                     <Link className="nav-custom" to="/login">
+                    <button className="btn btn-dark btn-sm">
                     {organizaiton!==null?organizaiton:user.name}
+                    </button>
                     </Link>
                     </NavLink> </NavItem>
                 }

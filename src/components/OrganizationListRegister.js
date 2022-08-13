@@ -34,7 +34,7 @@ function OrganizationListRegister() {
   }
 
   return (
-    <div>
+    <div className="user_card">
       <h1>REGISTER AS ORGANIZATION</h1>
       <form onSubmit={registerUser}>
         <input
