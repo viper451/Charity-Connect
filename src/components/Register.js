@@ -204,6 +204,7 @@ const Register = () => {
                 value={organizaiton}
                 id="name"
                 placeholder="Enter Name"
+              
               />
             </FormGroup>
 
@@ -215,6 +216,7 @@ const Register = () => {
                 value={orgemail}
                 id="email"
                 placeholder="Enter Email"
+             
               />
             </FormGroup>
 
@@ -225,19 +227,11 @@ const Register = () => {
                 name="location"
                 id="location"
                 placeholder="Enter Location"
+                required
               />
             </FormGroup>
 
-            {/* 
-                <FormGroup>
-                    <Label for="date">Date</Label>
-                    <Input
-                    type="date"
-                    name="date"
-                    id="date"
-                    placeholder="Enter Date"
-                    />
-                </FormGroup> */}
+         
 
             <FormGroup>
               <Label for="description">Description</Label>
@@ -246,6 +240,7 @@ const Register = () => {
                 name="description"
                 id="description"
                 placeholder="Enter Description"
+                required
               />
             </FormGroup>
 
@@ -257,6 +252,7 @@ const Register = () => {
                 id="organize"
                 value={action.name}
                 placeholder=""
+             
               />
             </FormGroup>
 

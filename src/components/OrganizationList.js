@@ -3,7 +3,7 @@ import { Table } from "reactstrap";
 import TableData from "./TableData";
 import axios from "axios";
 import OrganizationTableData from "./OrganizationTableData";
-
+import swal from "sweetalert";
 const onClickDelete = async (id) => {
   const variables = {
     id: id,
@@ -24,6 +24,15 @@ const onClickDelete = async (id) => {
   //        useEffect(()=>{
   //    TableData()
   //  },[information]);
+  swal({
+    title: "ORGNAZATION!",
+    text: "Deleted Successfully!",
+    icon:  "success",
+    dangerMode: true,
+    button: false,
+    timer: 850,
+  });
+  
 };
 
 const OrganizationList = () => {

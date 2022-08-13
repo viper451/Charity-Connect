@@ -34,7 +34,7 @@ const Navigation = (props) => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="dark" light expand="md">
         <div className="container">
         <NavbarBrand href="/">
             <img src={charityconnect} style={{maxWidth:"140px"}} />
@@ -46,7 +46,11 @@ const Navigation = (props) => {
             
             <NavItem>
             <NavLink>
-              <Link className="nav-custom" to="/">Home</Link>
+              <Link className="nav-custom" to="/">
+              <button className="btn btn-warning btn-sm">
+                Home
+                </button>
+                </Link>
               </NavLink>
             </NavItem>
 

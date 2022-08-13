@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import {
   Card,
   CardImg,
@@ -10,10 +10,9 @@ import {
   Button,
 } from "reactstrap";
 
-// const onClickDelete=async(id)=>{
-//   console.log(id)
-//      axios.delete('http://localhost:3006/deleteActivityOrganization',id)
-// }
+
+
+
 
 export default function OrganizationTableData(props) {
   // console.log(props)

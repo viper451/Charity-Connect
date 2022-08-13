@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Card = (props) => {
   const { id, name, picture } = props.data;
-  console.log(props.data);
+  // console.log(props.data);
   return (
     <Link to={"/register/" + id}>
       <div

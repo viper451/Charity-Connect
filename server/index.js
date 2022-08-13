@@ -1,17 +1,57 @@
 const express = require("express"); //express
 const app = express(); // express --> app
 const bodyParser = require("body-parser"); // body parser
+const { v4: uuidv4 } = require('uuid');
 var cors = require("cors"); // cors
 app.use(cors()); // cors --> app
 app.use(bodyParser.json()); // body parser --> app
 app.use(bodyParser.urlencoded({ extended: false })); // use body parser middleware for url encoded
 const ObjectId = require("mongodb").ObjectID;
 require("dotenv").config();
+const multer=require("multer")
 
 
 const MongoClient = require("mongodb").MongoClient; //required always
 
 const uri = process.env.REACT_APP_MONGO_URL;
+
+const storage=multer.diskStorage({
+  destination:function(req,file,callback){
+    callback(null,'../public/images');
+  },
+  filename:(req,file,callback)=>{
+    callback(null,uuidv4()+'-'+Date.now()+file.originalname);
+
+  }
+})
+
+
+
+// const multerStorage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "images");
+//   },
+//   filename:(req,file,callback)=>{
+//     callback(null,uuidv4()+'-'+Date.now()+Path2D.extname(file.originalname));
+
+//   }
+// });
+
+
+const fileFilter=(req,file,cb)=>{
+  const allowFileTypes=['image/jpeg','image/jpg','image/png']
+  if(allowFileTypes.includes(file.mimetype))
+  {
+    cb(null,true)
+  }
+  else{
+    cb(null,false)
+
+    
+  }
+}
+
+let upload=multer({storage,fileFilter});
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -19,10 +59,9 @@ const client = new MongoClient(uri, {
 }); //unified topology set
 client.connect((err) => {
   const collection = client.db("volunteer").collection("volunteerCollection"); //connecting the collection
-  const organization = client
-    .db("volunteer")
-    .collection("organizationCollection"); //all orgnaization detail
+  const organization = client.db("volunteer").collection("organizationCollection"); //all orgnaization detail
   const event = client.db("volunteer").collection("organizationevent"); //ALL EVENT POSTED BY THE ORGANIZAIOTN
+  const addeventinfo = client.db("volunteer").collection("addeventinfo"); //ADD INFORMATION BY ADMIN
   // perform actions on the collection object
 
   // loading data
@@ -155,20 +194,6 @@ client.connect((err) => {
     });
   });
 
-  // app.post('/loginOrganization',async (req,res)=>{
-  //   const pd=req.body;
-  //   console.log(pd);
-
-  //   var email=await organization.findOne({email:req.body.email})
-  //   console.log(JSON.stringify(email))
-  //   if(email==null)
-  //   {
-  //     res.send({success:false,statement:"WRONG EMAIL ID OR PASSWORD"})
-  //     return;
-  //   }
-
-  // })
-
   app.post("/deleteActivity", (req, res) => {
     // console.log(req.body);
 
@@ -222,28 +247,36 @@ client.connect((err) => {
   });
 
 
+  app.post("/eventadd",upload.single("photo"),(req,res)=>{
+    console.log(req.file)
+     const newArticle={
+      title:req.body.title,
+      orgnaizationname: req.body.orgnaizationname,
+      description: req.body.description,
+      fileName: {
+        data:req.file.filename,
+        path:req.file.path,
+        contentType:'image/png'}
+     };
+           
 
-//   const filter = { _id: 465 };
-// // update the value of the 'z' field to 42
-// const updateDocument = {
-//    $set: {
-//       z: 42,
-//    },
-// };
-// const result = await collection.updateOne(filter, updateDocument);
+      
+     addeventinfo.insertOne(newArticle).then((req,response) => {
+      if(err) return res.send({success:false,err});
+      res.send({success:true});
+    });
+  });
+
+  app.get("/neweventinfo", (req, res) => {
+    addeventinfo
+      .find({}) //find all data from database
+      .toArray((err, document) => {
+        // to array is being used to load all data from db
+        res.send(document); //data send to html
+      });
+  });
 
 
-  // MongoClient.connect(url, function(err, db) {
-  //   if (err) throw err;
-  //   var dbo = db.db("mydb");
-  //   var myquery = { address: "Valley 345" };
-  //   var newvalues = { $set: {name: "Mickey", address: "Canyon 123" } };
-  //   dbo.collection("customers").updateOne(myquery, newvalues, function(err, res) {
-  //     if (err) throw err;
-  //     console.log("1 document updated");
-  //     db.close();
-  //   });
-  // });
 
 
 

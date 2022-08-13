@@ -42,6 +42,7 @@ function OrganizationListRegister() {
           onChange={(e) => setName(e.target.value)}
           type="text"
           placeholder="Organization Name"
+          required
         />
         <br />
         <input
@@ -49,6 +50,7 @@ function OrganizationListRegister() {
           onChange={(e) => setEmail(e.target.value)}
           type="email"
           placeholder="Email"
+          required
         />
         <br />
         <input
@@ -56,6 +58,7 @@ function OrganizationListRegister() {
           onChange={(e) => setPassword(e.target.value)}
           type="password"
           placeholder="Password"
+          required
         />
         <br />
         <input type="submit" value="Register" />
