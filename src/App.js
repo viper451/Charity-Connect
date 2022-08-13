@@ -41,21 +41,20 @@ function App() {
               <VolunteerList />
             </Route>
 
+            <Route path="/success">
+              <Success />
+            </Route>
+
             <Route path="/organizationlistregister">
               <OrganizationListRegister />
             </Route>
 
-            <Route path="/success">
-              <Success />
-            </Route>
 
             <Route path="/organizationlistlogin">
               <Organizationlistlogin />
             </Route>
 
-            <Route path="/organizationlist">
-              <OrganizationList />
-            </Route>
+           
 
             <Route path="/admin">
               <Admin />
@@ -76,6 +75,10 @@ function App() {
             <PrivateRoute path="/register">
               <Register />
             </PrivateRoute>
+
+            <Route path="/organizationlist">
+              <OrganizationList />
+            </Route>
 
             <Route path="/addevent">
               <AddEvent />
