@@ -14,7 +14,7 @@ const Newuser = () => {
   return (
     <div className="container">
       <h5 className="my-5 text-justify" style={{ maxWidth: "500px" }}>
-        If you want to sign up for a volunteery work, You need to have a goolge
+        If you want to sign up for a volunteery work, You need to have a google
         account.If already have an google account.{" "}
         <Link to="login">Sign In</Link> here.
       </h5>

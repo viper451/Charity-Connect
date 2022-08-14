@@ -8,6 +8,7 @@ import swal from "sweetalert";
 
 const Register = () => {
   const [user, setUser] = useContext(UserContext);
+ 
   const [organizaiton, setOrganization] = useState(
     localStorage.getItem("name")
   );
@@ -16,6 +17,8 @@ const Register = () => {
 
   var work = Data.filter((key) => key.id == id);
   var action = work[0];
+  // console.log(action)
+  // console.log(typeof(id))
   const current = new Date();
   const todaydate = `${current.getDate()}/${
     current.getMonth() + 1
@@ -103,7 +106,7 @@ const Register = () => {
       .then((data) => {
         console.log(data);
         if (data) {
-          alert("SUCCESS");
+          // alert("SUCCESS");
           history.push("/");
         }
       });
@@ -255,7 +258,7 @@ const Register = () => {
                 type="text"
                 name="organize"
                 id="organize"
-                value={action.name}
+                value={id.length>2?"A Area Where People Gather for Change":action.name}
                 placeholder=""
              
               />

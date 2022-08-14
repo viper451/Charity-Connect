@@ -92,7 +92,7 @@ const Login = () => {
                     src="https://img.icons8.com/plasticine/100/000000/google-logo.png"
                   />
                 </div>
-                Login With Google
+                <b>Login With Google</b>
               </button>
               <p className="text-center my-3">
                 Don't have an account?{" "}
@@ -100,14 +100,14 @@ const Login = () => {
                   target="_blank"
                   href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp"
                 >
-                  Create an account
+              <b>   Create an account</b> 
                 </a>{" "}
               </p>
 
               <p className="text-center my-3">
                 Don't have an account?{" "}
                 <Link to={"/organizationlistlogin"}>
-                  Login as Organization{" "}
+              <b>  Login as Organization{" "} </b>  
                 </Link>{" "}
               </p>
             </>

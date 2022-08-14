@@ -81,7 +81,7 @@ const AddEvent = () => {
   return (
     <div className="container">
       <div className="container">
-        <h5 className="my-4 text-center">Add Event</h5>
+        <h5 className="my-4 text-center"><div className="classtablefont">Add Event</div></h5>
         <div className="event-box mx-auto">
           <Form onSubmit={changeonClick} encType="multipart/form-data">
             <FormGroup>

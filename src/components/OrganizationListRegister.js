@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import CorporateFareIcon from '@mui/icons-material/CorporateFare';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import LockIcon from '@mui/icons-material/Lock';
 
 
 function OrganizationListRegister() {
@@ -34,9 +37,13 @@ function OrganizationListRegister() {
   }
 
   return (
+    <>
+    <div className="classfontfamily">
+      <h1>REGISTER AS ORGANIZATION</h1> </div>
     <div className="user_card">
-      <h1>REGISTER AS ORGANIZATION</h1>
+    
       <form onSubmit={registerUser}>
+      <CorporateFareIcon/>
         <input
           value={orgnaizationname}
           onChange={(e) => setName(e.target.value)}
@@ -45,6 +52,7 @@ function OrganizationListRegister() {
           required
         />
         <br />
+        <AccountBoxIcon/> 
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -53,6 +61,7 @@ function OrganizationListRegister() {
           required
         />
         <br />
+        <LockIcon/> 
         <input
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -61,9 +70,12 @@ function OrganizationListRegister() {
           required
         />
         <br />
-        <input type="submit" value="Register" />
+        <button type="submit"  value="login"className="btn btn-primary">
+          Register
+          </button>
       </form>
     </div>
+    </>
   );
 }
 

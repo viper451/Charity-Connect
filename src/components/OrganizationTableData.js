@@ -16,8 +16,12 @@ import {
 
 export default function OrganizationTableData(props) {
   // console.log(props)
-  useEffect(() => {}, [props.info]);
   const [information, setInformation] = useState(props.info);
+  useEffect(() => 
+             setInformation(props.info)
+   
+  , [props.info]);
+ 
   //  console.log(information)
   console.log(information);
 

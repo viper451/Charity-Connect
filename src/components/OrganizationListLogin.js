@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import LockIcon from '@mui/icons-material/Lock';
 
 function Organizationlistlogin() {
 	const [email, setEmail] = useState('')
@@ -35,16 +37,23 @@ function Organizationlistlogin() {
 	}
 
 	return (
+		<>
+		<div className="classfontfamily">
+		<h1>LOGIN AS ORGANIZATION</h1>
+		</div>
 		<div className='user_card'>
-			<h1>LOGIN AS ORGANIZATION</h1>
+		
 			<form onSubmit={loginUser}>
+			<AccountBoxIcon/> 
 				<input
 					value={email}
 					onChange={(e) => setEmail(e.target.value)}
 					type="email"
 					placeholder="Email"
 				/>
+		   
 				<br />
+				<LockIcon/>
 				<input
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
@@ -52,9 +61,12 @@ function Organizationlistlogin() {
 					placeholder="Password"
 				/>
 				<br />
-				<input type="submit" value="Login" />
+				<button type="submit"  value="login"className="btn btn-primary">
+          Sign In!
+          </button>
 			</form>
 		</div>
+		</>
 	)
 }
 
