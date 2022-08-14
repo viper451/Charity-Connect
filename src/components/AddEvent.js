@@ -3,6 +3,7 @@ import "./style.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
 import { useHistory, useParams } from "react-router-dom";
+import swal from "sweetalert";
 
 
 
@@ -16,10 +17,7 @@ const AddEvent = () => {
     photo:"",
   }
   )
-  // const [title,setTitle]=useState("")
-  // const [orgnaizationname,setOrganizationname]=useState("")
-  // const [description,setDescription]=useState("")
-  // const [fileName,setFileName]=useState("")
+
   const history=useHistory()
 
 
@@ -40,8 +38,13 @@ const AddEvent = () => {
   const changeonClick=(e)=>{
     e.preventDefault();
 
-      console.log(newUser)
+      console.log(newUser.photo)
       const formData=new FormData();
+      if(newUser.title==='' || newUser.orgnaizationname==='' || newUser.description==='')
+      {
+        alert("PLEASE FILL ALL THE MANDATORY OPTION")
+        return;
+      }
       formData.append('title',newUser.title);
       formData.append('orgnaizationname',newUser.orgnaizationname);
       formData.append('description',newUser.description);
@@ -65,6 +68,14 @@ const AddEvent = () => {
    })
 
       console.log(response)
+      swal({
+        title: "ADDED EVENT!",
+        text: "Added Successfully!",
+        icon:  "success",
+        dangerMode: true,
+        button: false,
+        timer: 850,
+      });
   }
 
   return (
@@ -76,8 +87,7 @@ const AddEvent = () => {
             <FormGroup>
               <Label for="eventName">Event Title</Label>
               <Input
-                type="text"
-        
+                type="text"        
                 onChange={handleChange}
                 name="title"
                 id="title"
@@ -120,7 +130,7 @@ const AddEvent = () => {
                      className="form-control-file"
                      onChange={onChangeFile} 
                      id="banner" 
-                     required
+                    //  required
                       />
             </FormGroup>
 

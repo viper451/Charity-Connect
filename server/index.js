@@ -249,14 +249,14 @@ client.connect((err) => {
 
   app.post("/eventadd",upload.single("photo"),(req,res)=>{
     console.log(req.file)
-    const fileunkown="../public/images/unkonwn.png";
+    
      const newArticle={
       title:req.body.title,
       orgnaizationname: req.body.orgnaizationname,
       description: req.body.description,
       fileName: {
         data:req.file===undefined?"No banner":req.file.filename,
-        path:req.file===undefined?fileunkown:req.file.path,
+        path:req.file===undefined?"No path foundefined ":req.file.path,
         contentType:'image/png'}
      };
            
