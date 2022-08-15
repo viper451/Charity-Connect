@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -16,3 +17,15 @@ ReactDOM.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 //On progress
 reportWebVitals();
+
+
+
+// <script>
+// function googleTranslateElementInit() {
+//     new google.translate.TranslateElement(
+//         {pageLanguage: 'en'},
+//         'google_translate_element'
+//     );
+// }
+// </script>
+// <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

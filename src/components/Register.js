@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect } from "react";
 import "./style.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory, useParams } from "react-router-dom";
@@ -8,17 +8,37 @@ import swal from "sweetalert";
 
 const Register = () => {
   const [user, setUser] = useContext(UserContext);
- 
+  const [datas, setData] = useState([]);  
   const [organizaiton, setOrganization] = useState(
     localStorage.getItem("name")
   );
   const [orgemail, Setorgemail] = useState(localStorage.getItem("email"));
-  const { id } = useParams();
+  let { id } = useParams();
+  const [check,setCheck]=useState(true)
+  // ObjectId("5e27129bcfb11e5c34d89910").toString();
 
-  var work = Data.filter((key) => key.id == id);
+
+
+ if(check){
+ 
+  fetch("http://localhost:3006/organizationinfo")
+  .then((response) => response.json())
+  .then((data) => {
+    setData(data);
+    setCheck(false)
+  }
+  );
+}
+    
+  var work =id.length>2?datas.filter((key) =>
+
+  (key._id).toString == id.toString):Data.filter((key) => key.id == id);
+ 
+  
   var action = work[0];
-  // console.log(action)
-  // console.log(typeof(id))
+ 
+  console.log(action)
+
   const current = new Date();
   const todaydate = `${current.getDate()}/${
     current.getMonth() + 1
@@ -132,6 +152,7 @@ const Register = () => {
                 type="text"
                 name="name"
                  value={user.name==undefined?"":user.name}
+                //  onChange={e=>setDetails({...details,name:e.target.value})}
                 // value="LA"
                 id="name"
                 placeholder="Enter Name"
@@ -189,7 +210,7 @@ const Register = () => {
                 type="text"
                 name="organize"
               
-                  value={action===undefined?"NEEDED AS SOON AS POSSIBLE":action.name}
+                  value={id.length>2?action?.description:action.name}
                 //  value="sl"
                 // onChange={(e) => setName(e.target.value)}
                 id="organize"
@@ -258,7 +279,7 @@ const Register = () => {
                 type="text"
                 name="organize"
                 id="organize"
-                value={id.length>2?"A Area Where People Gather for Change":action.name}
+                value={id.length>2?action?.description:action.name}
                 placeholder=""
              
               />
