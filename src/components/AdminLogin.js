@@ -20,18 +20,14 @@ const account={
        e.preventDefault();
        console.log(details)
        setDetails(details)
-		
-    //    const response=axios.get('http:/local:8000/api/auth/login',details)
-    //    if(response!='')
-    //    {
-    //       alert("LOGIN SUCCESSFULLY")
-    //    }
-    if(details.email=='admin@gmail.com' && details.password=='admin')
+
+    if(details.email==account.email && details.password==account.password)
     {
         window.location.href='/admin'
     }
     else{
         alert('WRONG ID AND PASSWORD')
+        setDetails({email:'',password:''})
     }
 
   

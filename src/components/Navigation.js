@@ -31,6 +31,8 @@ const Navigation = (props) => {
   const [user,setUser]=useContext(UserContext);
   let [organizaiton,setOrganization]=useState(localStorage.getItem("name"))
   const toggle = () => setIsOpen(!isOpen);
+  console.log(organizaiton)
+  console.log(user)
 
   return (
     <div>
@@ -38,12 +40,13 @@ const Navigation = (props) => {
         <div className="container">
         <NavbarBrand href="/">
             <img src={charityconnect} style={{maxWidth:"140px"}} />
+            
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             
-            
+          <div id="google_translate_element"></div>
             <NavItem>
             <NavLink>
               <Link className="nav-custom" to="/">
@@ -115,11 +118,17 @@ const Navigation = (props) => {
               </NavLink> 
             }
               
-              <NavLink>
+            
+
+                {
+                  (organizaiton==null && !user.name) && <NavLink>
                 <Link to="/loginadmin">
                 <button style={{width:"70px"}} className="btn btn-secondary btn-sm">Admin</button>
                 </Link>
-              </NavLink>
+                </NavLink>
+}
+            
+              
             
              
           </Nav>
