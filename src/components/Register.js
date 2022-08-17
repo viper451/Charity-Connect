@@ -4,6 +4,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory, useParams } from "react-router-dom";
 import Data from "./Data";
 import { UserContext } from "../App";
+import { Country, State, City } from "country-state-city";
 import swal from "sweetalert";
 
 const Register = () => {
@@ -15,7 +16,16 @@ const Register = () => {
   const [orgemail, Setorgemail] = useState(localStorage.getItem("email"));
   let { id } = useParams();
   const [check,setCheck]=useState(true)
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
+
+  const [currentCountry, setCountry] = useState([]);
+  const [currentState, setState] = useState([]);
   // ObjectId("5e27129bcfb11e5c34d89910").toString();
+
+
+  console.log(Country.getAllCountries())
+console.log(State.getAllStates())
 
 
 
@@ -29,6 +39,12 @@ const Register = () => {
   }
   );
 }
+
+
+
+
+
+
     
   var work =id.length>2?datas.filter((key) =>
 

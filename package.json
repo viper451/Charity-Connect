@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.6.0",
     "axios": "^0.27.2",
     "bootstrap": "^4.5.3",
+    "country-state-city": "^3.0.1",
     "firebase": "^8.2.1",
     "react": "^17.0.1",
     "react-badges": "^1.0.1",
