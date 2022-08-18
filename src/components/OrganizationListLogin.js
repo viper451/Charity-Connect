@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LockIcon from '@mui/icons-material/Lock';
+import swal from "sweetalert";
 
 function Organizationlistlogin() {
 	const [email, setEmail] = useState('')
@@ -29,7 +30,15 @@ function Organizationlistlogin() {
             localStorage.setItem('token',data.info._id)
 			localStorage.setItem('email', data.info.email)
 		 localStorage.setItem('name',data.info.orgnaizationname)
-			alert('Login successful')
+			// alert('Login successful')
+			swal({
+				title: "LOGIN ORGNAIZATION!",
+				text: "Login Successfully!",
+				icon:  "success",
+				dangerMode: true,
+				button: false,
+				timer: 850,
+			  });
 			  window.location.href = '/'
 		} else {
 			alert('Please check your username and password')

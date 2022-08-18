@@ -25,7 +25,7 @@ export default function OrganizationTableData(props) {
   //  console.log(information)
   console.log(information);
 
-  const { name, date, mail, location, description, organize, _id } =
+  const { name, date, mail, location,volnumber, description, organize, _id } =
     information;
 
   return (
@@ -34,7 +34,8 @@ export default function OrganizationTableData(props) {
         <td>{name}</td>
         <td>{mail}</td>
         <td>{date}</td>
-        <th>{location}</th>
+        <td>{volnumber}</td>
+        <td>{location}</td>
         <td>{organize}</td>
         <td>
           <Button

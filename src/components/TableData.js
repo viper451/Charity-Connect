@@ -26,7 +26,7 @@ export default function TableData(props) {
 
   // console.log(information);
 
-  const { name, date, mail, location, description, organize, _id, status } =
+  const { name, date, mail,age, location, description, organize, _id, status } =
     information;
 
   return (
@@ -35,6 +35,7 @@ export default function TableData(props) {
         <td>{name}</td>
         <td>{mail}</td>
         <td>{date}</td>
+        <td>{age}</td>
         <td>{location}</td>
         <td>{organize}</td>
         <td><Button color={status=="Waiting"?"secondary":"success"}   onClick={() => props.onClickUpdate(_id,status)}>{status}</Button></td>

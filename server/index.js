@@ -126,9 +126,22 @@ client.connect((err) => {
   // sending/posting data to database
   app.post("/addPeople", (req, res) => {
     const pd = req.body;
-    // console.log(pd);
+    //  console.log(pd);
+    if(req.body.age<=12)
+    {
+      if(req.body.age<=0){
+      // res.send(false,"Age cannot be less then 0 enter proper Age")
+      res.send({ data: false, statement:"Age cannot be less then 0 enter proper Age" })
+      return;}
+      else{
+        res.send({ data: false,statement:"Too Young to Volunteer" })
+      }
+
+
+    }
+     
     collection.insertOne(pd).then((result) => {
-      res.send(true);
+      res.send({data:true});
     });
   });
 
@@ -137,8 +150,12 @@ client.connect((err) => {
 
     const pd = req.body;
     // console.log(pd);
+    if(req.body.volnumber<=0)
+    {
+      res.send({ data: false,statement:"Enter Proper Number of Volunteer(More then 0 😒)" });return;
+    }
     event.insertOne(pd).then((result) => {
-      res.send(true);
+      res.send({data:true});
     });
   });
 

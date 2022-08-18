@@ -81,7 +81,8 @@ const VolunteerList =  () => {
             <th>Name</th>
             <th>Email</th>
             <th>Registration Date</th>
-            <th>Location</th>
+            <th>Age</th>
+            <th>Location</th>           
             <th>Volunteer Work</th>
             <th>Action</th>
             <th>Status</th>

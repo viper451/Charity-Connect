@@ -60,6 +60,7 @@ const OrganizationList = () => {
             <th>Orgnazization Name</th>
             <th>Email</th>
             <th>Registration Date</th>
+            <th>Volunteer Required</th>
             <th>Location</th>
             <th>Description</th>
             <th>Action</th>

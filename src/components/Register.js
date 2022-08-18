@@ -63,11 +63,11 @@ console.log(State.getAllStates())
 
   let history = useHistory();
   function saveData(event) {
-    console.log("Enter volunteer");
+    // console.log("Enter volunteer");
     event.preventDefault();
     var name = document.getElementById("name").value;
     var date = todaydate;
-
+    var age=document.getElementById("age").value;
     var mail = document.getElementById("email").value;
     var organize = document.getElementById("organize").value;
     var description = document.getElementById("description").value;
@@ -78,13 +78,14 @@ console.log(State.getAllStates())
       name: name,
       date: date,
       mail: mail,
+      age:age,
       description: description,
       organize: organize,
       location: location,
       status: "Waiting",
     };
 
-    console.log(information);
+    // console.log(information);
 
     fetch("http://localhost:3006/addPeople", {
       method: "POST",
@@ -92,21 +93,25 @@ console.log(State.getAllStates())
       body: JSON.stringify(information),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data) {
+      .then((data,err) => {
+        console.log(JSON.stringify(data)+" "+err);
+        if (data.data) {
           // alert("SUCCESS")
+          swal({
+            title: "REGISTER VOLUNTEER!",
+            text: "Register Successfully!",
+            icon:  "success",
+            dangerMode: true,
+            button: false,
+            timer: 850,
+          });
           history.push("/");
         }
+        else{
+          alert(data.statement)
+        }
       });
-      swal({
-        title: "REGISTER VOLUNTEER!",
-        text: "Register Successfully!",
-        icon:  "success",
-        dangerMode: true,
-        button: false,
-        timer: 850,
-      });
+     
   }
 
   function saveDataOrganization(event) {
@@ -114,7 +119,7 @@ console.log(State.getAllStates())
     event.preventDefault();
     var name = document.getElementById("name").value;
     var date = todaydate;
-
+    var volnumber= document.getElementById("volnumber").value;
     var mail = document.getElementById("email").value;
     var organize = document.getElementById("organize").value;
     var description = document.getElementById("description").value;
@@ -126,6 +131,7 @@ console.log(State.getAllStates())
       name: name,
       date: date,
       mail: mail,
+      volnumber:volnumber,
       description: description,
       organize: organize,
       location: location,
@@ -139,21 +145,25 @@ console.log(State.getAllStates())
       body: JSON.stringify(information),
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then((data,err) => {
         console.log(data);
-        if (data) {
+        if (data.data) {
           // alert("SUCCESS");
           history.push("/");
+          swal({
+            title: "REGISTER ORGNAIZATION!",
+            text: "Register Successfully!",
+            icon:  "success",
+            dangerMode: true,
+            button: false,
+            timer: 850,
+          });
+        }
+        else{
+                alert(data.statement)
         }
       });
-      swal({
-        title: "REGISTER ORGNAIZATION!",
-        text: "Register Successfully!",
-        icon:  "success",
-        dangerMode: true,
-        button: false,
-        timer: 850,
-      });
+    
 
   }
   // console.log(action==undefined)
@@ -187,16 +197,22 @@ console.log(State.getAllStates())
               />
             </FormGroup>
 
-            {/* 
-                <FormGroup>
-                    <Label for="date">Date</Label>
-                    <Input
-                    type="date"
-                    name="date"
-                    id="date"
-                    placeholder="Enter Date"
-                    />
-                </FormGroup> */}
+
+
+              
+            <FormGroup>
+              <Label for="location">Age <b>(Min AGE:12)</b></Label>
+            <Input 
+          type="number" 
+          name="age" 
+          id="age"
+          placeholder="Enter Age"
+          // onChange={handleChange}
+          required
+        />
+        </FormGroup>
+
+
 
             <FormGroup>
               <Label for="location">Location</Label>
@@ -265,6 +281,21 @@ console.log(State.getAllStates())
               />
             </FormGroup>
 
+
+
+                
+            <FormGroup>
+              <Label for="location">Volunteer Required </Label>
+            <Input 
+          type="number" 
+          name="volnumber" 
+          id="volnumber"
+          placeholder="Enter Number of Volunteers Required"
+          // onChange={handleChange}
+          required
+        />
+        </FormGroup>
+                      
             <FormGroup>
               <Label for="location">Location</Label>
               <Input

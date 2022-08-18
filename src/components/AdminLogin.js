@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import "./style.css";
+import swal from 'sweetalert';
 
 
 
@@ -23,6 +24,14 @@ const account={
 
     if(details.email==account.email && details.password==account.password)
     {
+      swal({
+				title: "LOGIN Admin!",
+				text: "Login Successfully!",
+				icon:  "success",
+				dangerMode: true,
+				button: false,
+				timer: 850,
+			  });
         window.location.href='/admin'
     }
     else{
