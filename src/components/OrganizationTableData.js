@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 import {
   Card,
@@ -47,5 +49,8 @@ export default function OrganizationTableData(props) {
         </td>
       </tr>
     </tbody>
+   
+
+    
   );
 }

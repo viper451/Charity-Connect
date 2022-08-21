@@ -9,6 +9,8 @@ import {
   CardSubtitle,
   Button,
 } from "reactstrap";
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 
 // const onClickDelete=async(id)=>{
@@ -30,7 +32,9 @@ export default function TableData(props) {
     information;
 
   return (
-    <tbody>
+   
+    <tbody >
+
       <tr>
         <td>{name}</td>
         <td>{mail}</td>
@@ -48,6 +52,8 @@ export default function TableData(props) {
           </Button>
         </td>
       </tr>
+      <br/><br/>
     </tbody>
+
   );
 }

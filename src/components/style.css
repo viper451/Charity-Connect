@@ -88,7 +88,7 @@ body{
     color: aliceblue;
     font-size:14px;
     border-radius: 20px;
-    transition: .2s;
+    transition: .5s;
     box-shadow: 5px 5px 18px rgb(158, 158, 158);
 }
 

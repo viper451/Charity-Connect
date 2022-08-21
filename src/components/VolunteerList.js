@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "reactstrap";
 import TableData from "./TableData";
 import axios from "axios";
 import swal from "sweetalert";
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 const onClickDelete = async (id) => {
   const variables = {
@@ -74,9 +75,9 @@ const VolunteerList =  () => {
     <>
           <div className="classfontfamily">
       <b>
-    Registered Volunteer List </b></div>
-      <Table style={{ maxWidth: "1000px" }} className="mx-auto mt-5">
-        <thead>
+    Registered Volunteer List </b></div><br/><br/>
+      <Table style={{ maxWidth: "1000px", "borderWidth":"0.1px", 'borderColor':"#FFFFFF", 'borderStyle':'solid' }} className="mx-auto mt-8">
+        <Thead>
           <tr>
             <th>Name</th>
             <th>Email</th>
@@ -87,7 +88,7 @@ const VolunteerList =  () => {
             <th>Action</th>
             <th>Status</th>
           </tr>
-        </thead>
+        </Thead>
         {datas.map((key) => (
           <TableData
              onClickUpdate={onClickUpdate}

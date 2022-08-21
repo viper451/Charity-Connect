@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Table } from "reactstrap";
+
 import TableData from "./TableData";
 import axios from "axios";
 import OrganizationTableData from "./OrganizationTableData";
 import swal from "sweetalert";
 import "./style.css";
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+
 const onClickDelete = async (id) => {
   const variables = {
     id: id,
@@ -52,12 +55,12 @@ const OrganizationList = () => {
     <>
     <div className="classfontfamily">
       <b>
-    Registered Organization List </b></div>
-      <Table style={{ maxWidth: "1000px" }} className="mx-auto mt-5">
-        <thead>
+    Registered Organization List </b> <br/><br/></div>
+      <Table style={{ maxWidth: "1000px", "borderWidth":"0.1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid'}} className="mx-auto mt-6">
+        <Thead>
           <tr>
        
-            <th>Orgnazization Name</th>
+            <th>Organization Name</th>
             <th>Email</th>
             <th>Registration Date</th>
             <th>Volunteer Required</th>
@@ -65,7 +68,7 @@ const OrganizationList = () => {
             <th>Description</th>
             <th>Action</th>
           </tr>
-        </thead>
+        </Thead>
         {datas.map((key) => (
           <OrganizationTableData onClickDelete={onClickDelete} info={key} />
         ))}

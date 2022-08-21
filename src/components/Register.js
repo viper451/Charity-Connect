@@ -16,11 +16,7 @@ const Register = () => {
   const [orgemail, Setorgemail] = useState(localStorage.getItem("email"));
   let { id } = useParams();
   const [check,setCheck]=useState(true)
-  const [states, setStates] = useState([]);
-  const [cities, setCities] = useState([]);
-
-  const [currentCountry, setCountry] = useState([]);
-  const [currentState, setState] = useState([]);
+  const [verified,setVerified]=useState(false)
   // ObjectId("5e27129bcfb11e5c34d89910").toString();
 
 
@@ -86,7 +82,11 @@ console.log(State.getAllStates())
     };
 
     // console.log(information);
+    if(information.age>12){ setVerified(true)}
 
+
+    if(information.age>12 )
+{
     fetch("http://localhost:3006/addPeople", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -106,14 +106,28 @@ console.log(State.getAllStates())
             timer: 850,
           });
           history.push("/");
+          setVerified(false)
         }
         else{
           alert(data.statement)
+          setVerified(false)
         }
       });
      
   }
 
+else{
+  swal({
+    title: "ERROR OCCURED!",
+    text: "Failed to register!",
+    icon:  "error",
+    dangerMode: true,
+    button: false,
+    timer: 850,
+  });
+  setVerified(false)
+}
+  }
   function saveDataOrganization(event) {
     console.log("Enter Organization");
     event.preventDefault();

@@ -5,7 +5,7 @@ import {
   } from 'reactstrap';
  import Badge from 'react-bootstrap/Badge';
 const VolunteerCard = (props) => {
-
+   console.log(props)
     const {_id,name,date,mail,organize, description,status}=props.datas;
     // const [waiting, setwaiting] = useState(props.datas.status)
     // setwaiting(props.datas.status)
