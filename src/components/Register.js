@@ -20,8 +20,8 @@ const Register = () => {
   // ObjectId("5e27129bcfb11e5c34d89910").toString();
 
 
-  console.log(Country.getAllCountries())
-console.log(State.getAllStates())
+//   console.log(Country.getAllCountries())
+// console.log(State.getAllStates())
 
 
 
@@ -49,7 +49,7 @@ console.log(State.getAllStates())
   
   var action = work[0];
  
-  console.log(action)
+  // console.log(action)
 
   const current = new Date();
   const todaydate = `${current.getDate()}/${

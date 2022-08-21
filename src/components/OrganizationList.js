@@ -13,7 +13,7 @@ const onClickDelete = async (id) => {
     id: id,
   };
 
-  const response = await axios.post(
+await axios.post(
     "http://localhost:3006/deleteActivityOrganization",
     variables
   );

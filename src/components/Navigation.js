@@ -31,8 +31,8 @@ const Navigation = (props) => {
   const [user,setUser]=useContext(UserContext);
   let [organizaiton,setOrganization]=useState(localStorage.getItem("name"))
   const toggle = () => setIsOpen(!isOpen);
-  console.log(organizaiton)
-  console.log(user)
+  // console.log(organizaiton)
+  // console.log(user)
 
   return (
     <div>

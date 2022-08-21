@@ -223,7 +223,7 @@ client.connect((err) => {
   });
 
   app.post("/deleteActivityOrganization", (req, res) => {
-    // console.log(req.body);
+     console.log(req.body);
 
     event.findOneAndDelete({ _id: ObjectId(req.body.id) }).then((err, doc) => {
       if (err) return res.send({ success: false, err });
@@ -293,6 +293,22 @@ client.connect((err) => {
         res.send(document); //data send to html
       });
   });
+
+  app.post("/numEvents", (req, res) => {
+     console.log(req.body)
+     console.log()
+    // collection.find({ 'name': req.body.name })
+    //     .exec((err, eventnumber) => {
+    //         if (err) return res.status(400).send(err);
+    //         return res.status(200).json({ success: true,eventnumber })
+    //     })find().exec
+    collection.find({ 'name': req.body.name }).toArray((err, document) => {
+       console.log(document.length)
+      res.send({data:true,statement:document.length}); return;
+  //   Model.find().exec(function (err, results) {
+  // var count = results.length
+});
+  })
 
 
 

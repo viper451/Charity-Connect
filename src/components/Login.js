@@ -24,7 +24,7 @@ const Login = () => {
   const [organizaiton, setOrganization] = useState(
     localStorage.getItem("name")
   );
-  console.log(organizaiton);
+ 
 
   const history = useHistory();
   const location = useLocation();

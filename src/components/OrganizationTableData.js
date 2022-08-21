@@ -41,7 +41,8 @@ export default function OrganizationTableData(props) {
         <td>{organize}</td>
         <td>
           <Button
-            onClick={() => props.onClickDelete(_id)}
+            onClick={() => props.onClickDelete(_id) }
+
             className="btn btn-danger"
           >
             DELETE
