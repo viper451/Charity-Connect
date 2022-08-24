@@ -33,66 +33,66 @@ function App() {
         <Router>
           <Navigation />
           <Switch>
-            <Route path="/login">
+            <Route exact path="/login">
               <Login />
             </Route>
 
-            <Route path="/volunteerlist">
+            <Route exact path="/volunteerlist">
               <VolunteerList />
             </Route>
 
-            <Route path="/success">
+            <Route exact path="/success">
               <Success />
             </Route>
 
-            <Route path="/organizationlistregister">
+            <Route exact path="/organizationlistregister">
               <OrganizationListRegister />
             </Route>
 
 
-            <Route path="/organizationlistlogin">
+            <Route exact path="/organizationlistlogin">
               <Organizationlistlogin />
             </Route>
 
            
 
-            <Route path="/admin">
+            <Route exact path="/admin">
               <Admin />
             </Route>
 
-            <Route path="/loginadmin">
+            <Route exact  path="/loginadmin">
               <AdminLogin />
             </Route>
 
-            <Route path="/newuser">
+            <Route exact path="/newuser">
               <Newuser />
             </Route>
 
-            <PrivateRoute path="/register/:id">
+            <PrivateRoute exact path="/register/:id">
               <Register />
             </PrivateRoute>
 
-            <PrivateRoute path="/register">
+            <PrivateRoute exact path="/register">
               <Register />
             </PrivateRoute>
 
-            <Route path="/organizationlist">
+            <Route exact path="/organizationlist">
               <OrganizationList />
             </Route>
 
-            <Route path="/addevent">
+            <Route exact path="/addevent">
               <AddEvent />
             </Route>
 
-            <Route path="/addedevent">
+            <Route exact path="/addedevent">
               <AddedEvent />
             </Route>
 
-            <Route path="/selectedworks">
+            <Route exact path="/selectedworks">
               <SelectedWorks />
             </Route>
 
-            <Route path="/">
+            <Route exact path="/">
               <Works />
             </Route>
           </Switch>

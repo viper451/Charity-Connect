@@ -124,9 +124,25 @@ client.connect((err) => {
   });
 
   // sending/posting data to database
-  app.post("/addPeople", (req, res) => {
+  app.post("/addPeople",upload.single("photo"), (req, res) => {
     const pd = req.body;
-    //  console.log(pd);
+      console.log(pd);
+      console.log(req.file)
+
+      const newArticle={
+        name:req.body.name,
+        date:req.body.date,
+        mail:req.body.mail,
+        description:req.body.description,
+        organize:req.body.organize,
+        location:req.body.location,
+        status:req.body.status,
+        fileName:{
+          data:req.file.filename,
+          path:req.file.path,
+          contentType:'image/png'
+        }
+      }
     if(req.body.age<=12)
     {
       if(req.body.age<=0){
@@ -140,7 +156,7 @@ client.connect((err) => {
 
     }
      
-    collection.insertOne(pd).then((result) => {
+    collection.insertOne(newArticle).then((result) => {
       res.send({data:true});
     });
   });

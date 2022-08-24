@@ -1,7 +1,7 @@
 import React, { useState, useContext,useEffect } from "react";
 import "./style.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams,Link } from "react-router-dom";
 import Data from "./Data";
 import { UserContext } from "../App";
 import { Country, State, City } from "country-state-city";
@@ -68,6 +68,7 @@ const Register = () => {
     var organize = document.getElementById("organize").value;
     var description = document.getElementById("description").value;
     var location = document.getElementById("location").value;
+    var photo = document.querySelector('input[type="file"]')
 
     //console.log(name+" : "+number+" : "+mail+" : "+address);
     var information = {
@@ -81,16 +82,26 @@ const Register = () => {
       status: "Waiting",
     };
 
+    var formData=new FormData();
+    formData.append('name',name)
+    formData.append('date',date)
+    formData.append('mail',mail)
+    formData.append('description',description)
+    formData.append('organize',organize)
+    formData.append('location',location)
+    formData.append('status',"Waiting")
+    formData.append('photo',photo.files[0])
+
     // console.log(information);
     if(information.age>12){ setVerified(true)}
-
+      console.log(JSON.stringify(formData))
 
     if(information.age>12 )
 {
     fetch("http://localhost:3006/addPeople", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(information),
+      // headers: { "Content-Type": "application/json" },
+      body: formData,
     })
       .then((res) => res.json())
       .then((data,err) => {
@@ -105,7 +116,9 @@ const Register = () => {
             button: false,
             timer: 850,
           });
-          history.push("/");
+           history.push("/");
+          // window.location.href="/"
+        
           setVerified(false)
         }
         else{
@@ -138,6 +151,7 @@ else{
     var organize = document.getElementById("organize").value;
     var description = document.getElementById("description").value;
     var location = document.getElementById("location").value;
+ 
 
     //console.log(name+" : "+number+" : "+mail+" : "+address);
 
@@ -149,7 +163,12 @@ else{
       description: description,
       organize: organize,
       location: location,
+   
     };
+
+
+
+
 
     console.log(information);
 
@@ -263,6 +282,20 @@ else{
                 placeholder="Enter Volunteer Work"
                 required
               />
+            </FormGroup>
+
+
+
+            <FormGroup>
+              <Label for="banner">Background Verification(<b>Aadhar Card Pan Card Passport (Any one)</b>)</Label>
+              <Input type="file" 
+                     name="photo"
+                     accept=".png,.jpg,.jpeg"
+                     className="form-control-file"
+                  
+                     id="banner" 
+                    //  required
+                      />
             </FormGroup>
 
             <button className="btn btn-primary btn-custom-2">

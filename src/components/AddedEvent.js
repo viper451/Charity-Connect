@@ -2,6 +2,7 @@ import React, {useState,useContext, useEffect} from 'react';
 import {UserContext} from '../App';
 import VolunteerCard from './VolunteerCard';
 import axios from 'axios'
+import swal from 'sweetalert';
 
 const AddedEvent = () => {
     const [user,setUser]=useContext(UserContext);
@@ -19,12 +20,12 @@ const AddedEvent = () => {
 
                     userEvents()
           
-     console.log(numevents)
+    //  console.log(numevents)
     }, [numevents])
 
     const userEvents=async ()=>{
       const variable={name:user.name}
-       console.log(variable)
+    //    console.log(variable)
       
  await fetch("http://localhost:3006/numEvents",{
     method: "POST",
@@ -40,15 +41,23 @@ const AddedEvent = () => {
     };
 
     function removeWork(id){
-        console.log(id);
-        console.log(user.mail)
+        // console.log(id);
+        // console.log(user.mail)
         
         fetch(`http://localhost:3006/delete/${id}?mail=`+user.mail,{
             method: 'DELETE'
         })
         .then(response => response.json())
         .then(datas => {
-              console.log(datas)
+            //   console.log(datas)
+            swal({
+                title: "REMOVED EVENT 🥺!",
+                text: "Removed Successfully!",
+                icon:  "success",
+                dangerMode: true,
+                button: false,
+                timer: 850,
+              });
         });
 
         
