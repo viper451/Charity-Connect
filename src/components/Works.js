@@ -35,13 +35,8 @@ const Works = () => {
     return (
         <div className="container">
             <div>
-                <h4 className=" my-5 text-center">“तेरा वजूद मेरी दुआओं में हो,
-
-मेरी हाथों की लकीरों में तू ऐसे समाये,
-
-मैं दुआ में अमीन कहूं,
-
-और तू मेरी हो जाये” <span className="font-weight-bold" >- Muhammad Ali</span> </h4>
+                <h4 className=" my-5 text-center">जो जन दान-दक्षिणा देते हैं, 
+                वे स्वर्गलोक में उच्च स्थान प्राप्त करते हैं। <span className="font-weight-bold" >-  ऋग्वेद</span> </h4>
      
                 
             </div>
