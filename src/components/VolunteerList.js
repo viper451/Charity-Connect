@@ -69,7 +69,7 @@ const VolunteerList =  () => {
       });
   }, [datas]);
 
-  //  console.log(datas)
+    // console.log(datas)
 
   return (
     <>
@@ -85,8 +85,10 @@ const VolunteerList =  () => {
             <th>Age</th>
             <th>Location</th>           
             <th>Volunteer Work</th>
+            <th>Verification</th>
             <th>Action</th>
             <th>Status</th>
+
           </tr>
         </Thead>
         {datas.map((key) => (

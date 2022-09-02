@@ -14,9 +14,10 @@ const {_id,title}=props.data
    let path=String(props.data.fileName.path)
   //  let unkownpath=String("\images\unkown.png")
   //  console.log(String(path.length)>20)
-  //  console.log(String(path.length))
+  //  console.log(String(path))
    let finalpath=String(path.length)>20?String(path.substring(10)):"\\images\\unkown.png"
-  //  console.log(finalpath)
+     console.log(String(props.data.fileName.path))
+     console.log(finalpath)
   return (
     <Link to={"/register/" + _id}>
       <div

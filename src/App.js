@@ -19,6 +19,7 @@ import AddedEvent from "./components/AddedEvent";
 import Newuser from "./components/Newuser";
 import AdminLogin from "./components/AdminLogin";
 import OrganizationList from "./components/OrganizationList";
+import Verification from "./components/Verification";
 export const UserContext = React.createContext();
 
 function App() {
@@ -90,6 +91,10 @@ function App() {
 
             <Route exact path="/selectedworks">
               <SelectedWorks />
+            </Route>
+
+            <Route exact path="/verification">
+              <Verification />
             </Route>
 
             <Route exact path="/">
