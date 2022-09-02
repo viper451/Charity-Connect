@@ -63,11 +63,10 @@ client.connect((err) => {
   const event = client.db("volunteer").collection("organizationevent"); //ALL EVENT POSTED BY THE ORGANIZAIOTN
   const addeventinfo = client.db("volunteer").collection("addeventinfo"); //ADD INFORMATION BY ADMIN
   // perform actions on the collection object
-
+  // collection('').find({}).sort({_id:-1}) 
   // loading data
   app.get("/info", (req, res) => {
-    collection
-      .find({}) //find all data from database
+    collection.find({}).sort({_id:-1})  //find all data from database
       .toArray((err, document) => {
         // to array is being used to load all data from db
         res.send(document); //data send to html
@@ -77,7 +76,7 @@ client.connect((err) => {
   //GET ORGANIZATION DATA
   app.get("/organizationinfo", (req, res) => {
     event
-      .find({}) //find all data from database
+      .find({}).sort({_id:-1}) //find all data from database
       .toArray((err, document) => {
         // to array is being used to load all data from db
         res.send(document); //data send to html
