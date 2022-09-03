@@ -24,7 +24,7 @@ const {_id,title}=props.data
         className="card card-custom m-2"
         style={{ width: "14rem", minHeight: "12rem" }}
       >
-        <img className="card-img-top" src={(finalpath)}  />
+        <img className="card-img-top" src={(finalpath)}  alt="" />
         <div className="card-body">
           <p className="card-text text-center ">{title}</p>
         </div>

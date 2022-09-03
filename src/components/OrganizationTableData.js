@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
   Button,
 } from "reactstrap";
 
@@ -27,7 +20,7 @@ export default function OrganizationTableData(props) {
   //  console.log(information)
   console.log(information);
 
-  const { name, date, mail, location,volnumber, description, organize, _id } =
+  const { name, date, mail, location,volnumber, organize, _id } =
     information;
 
   return (

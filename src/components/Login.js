@@ -2,14 +2,11 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import firebaseConfig from "./firebaseConfig";
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext} from "react";
 import "./style.css";
 import { UserContext } from "../App";
-import axios from "axios";
+
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
   useHistory,
   useLocation,
@@ -90,6 +87,7 @@ const Login = () => {
                   <img
                     style={{ maxWidth: "40px" }}
                     src="https://img.icons8.com/plasticine/100/000000/google-logo.png"
+                    alt=""
                   />
                 </div>
                 <b>Login With Google</b>
@@ -98,6 +96,7 @@ const Login = () => {
                 Don't have an account?{" "}
                 <a
                   target="_blank"
+                  rel="noreferrer" 
                   href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp"
                 >
               <b>   Create an account</b> 

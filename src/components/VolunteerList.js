@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import TableData from "./TableData";
 import axios from "axios";
 import swal from "sweetalert";
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import { Table, Thead} from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 const onClickDelete = async (id) => {
@@ -10,7 +10,7 @@ const onClickDelete = async (id) => {
     id: id,
   };
 
-  const response = await axios.post(
+ await axios.post(
     "http://localhost:3006/deleteActivity",
     variables
   );
@@ -31,7 +31,7 @@ const onClickUpdate = async (id,status) => {
   
 
   };
-  const response = await axios.post(
+   await axios.post(
     "http://localhost:3006/updateActivity",
     variables
   );
@@ -43,7 +43,7 @@ const onClickUpdate = async (id,status) => {
     icon:  "success",
     dangerMode: true,
     button: false,
-    timer: 850,
+    timer: 900,
   });
  }
  else{
@@ -53,7 +53,7 @@ const onClickUpdate = async (id,status) => {
     icon:  "success",
     dangerMode: true,
     button: false,
-    timer: 850,
+    timer: 900,
   });
  }
 };

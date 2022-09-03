@@ -8,20 +8,12 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
 } from 'reactstrap';
 import './style.css'
 import {
-    BrowserRouter as Router,
-    Switch,
-    useLocation,
+ 
     Link
   } from "react-router-dom";
-import logo from './logos/logo.png';
 import charityconnect from './logos/charityconnect.png';
 import {UserContext} from '../App';
 
@@ -39,7 +31,7 @@ const Navigation = (props) => {
       <Navbar color="dark" light expand="md">
         <div className="container">
         <NavbarBrand href="/">
-            <img src={charityconnect} style={{maxWidth:"140px"}} />
+            <img src={charityconnect} style={{maxWidth:"140px"}} alt="" />
             
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />

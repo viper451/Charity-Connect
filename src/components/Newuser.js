@@ -1,13 +1,7 @@
 import React from "react";
 import "./style.css";
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
-  useHistory,
-  useLocation,
-  useParams,
 } from "react-router-dom";
 
 const Newuser = () => {
@@ -22,6 +16,7 @@ const Newuser = () => {
         If you do not have.{" "}
         <a
           target="_blank"
+          rel="noreferrer"
           href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp"
         >
           Sign up

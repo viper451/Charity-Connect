@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  CardTitle,Button
 } from 'reactstrap';
 const SelectedWorks = () => {
     const img="https://i.ibb.co/dBHb2dp/880681.jpg";
@@ -13,7 +13,7 @@ const SelectedWorks = () => {
                     <CardBody>
                     <CardTitle tag="h5">Humanity More</CardTitle>
                      
-                    <CardText>29 September, 2020</CardText>
+                    <CardText>11 August, 2022</CardText>
                     <Button>Cancel</Button>
                     </CardBody>
                 </Card>

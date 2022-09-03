@@ -1,10 +1,10 @@
-import React, { useState, useContext,useEffect } from "react";
+import React, { useState, useContext } from "react";
 import "./style.css";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { useHistory, useParams,Link } from "react-router-dom";
+import {  Form, FormGroup, Label, Input } from "reactstrap";
+import { useHistory, useParams} from "react-router-dom";
 import Data from "./Data";
 import { UserContext } from "../App";
-import { Country, State, City } from "country-state-city";
+
 import swal from "sweetalert";
 
 const Register = () => {
@@ -44,7 +44,7 @@ const Register = () => {
     
   var work =id.length>2?datas.filter((key) =>
 
-  (key._id).toString == id.toString):Data.filter((key) => key.id == id);
+  (key._id).toString === id.toString):Data.filter((key) => key.id == id);
  
   
   var action = work[0];
@@ -114,7 +114,7 @@ const Register = () => {
             icon:  "success",
             dangerMode: true,
             button: false,
-            timer: 850,
+            timer: 900,
           });
            history.push("/");
           // window.location.href="/"
@@ -136,7 +136,7 @@ else{
     icon:  "error",
     dangerMode: true,
     button: false,
-    timer: 850,
+    timer: 900,
   });
   setVerified(false)
 }

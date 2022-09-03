@@ -11,7 +11,7 @@ const Card = (props) => {
         className="card card-custom m-2"
         style={{ width: "14rem", minHeight: "12rem" }}
       >
-        <img className="card-img-top" src={picture} alt="Card image cap" />
+        <img className="card-img-top" src={picture} alt="Card  cap" />
         <div className="card-body">
           <p className="card-text text-center ">{name}</p>
         </div>

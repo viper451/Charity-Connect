@@ -20,7 +20,7 @@ const Admin = () => {
             className="card-img-top"
             src={Volunteer}
             height="330px"
-            alt="Card image cap"
+            alt="Card  cap"
           />
           <div className="card-body">
             <p className="card-text text-center ">
@@ -41,7 +41,7 @@ const Admin = () => {
             className="card-img-top"
             src={Organization}
             height="330px"
-            alt="Card image cap"
+            alt="Card  cap"
           />
           <div className="card-body">
             <p className="card-text text-center ">
@@ -64,7 +64,7 @@ const Admin = () => {
             className="card-img-top"
             src={Events}
             height="330px"
-            alt="Card image cap"
+            alt="Card  cap"
           />
           <div className="card-body">
             <p className="card-text text-center ">

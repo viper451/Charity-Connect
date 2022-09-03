@@ -14,7 +14,7 @@ const account={
 
 
      const [details,setDetails]=useState({email:"",password:""})
-     const [error,setError]=useState("")
+
 
 
      const submitHandler=e=>{
@@ -22,7 +22,7 @@ const account={
        console.log(details)
        setDetails(details)
 
-    if(details.email==account.email && details.password==account.password)
+    if(details.email===account.email && details.password===account.password)
     {
       swal({
 				title: "LOGIN Admin!",
@@ -30,7 +30,7 @@ const account={
 				icon:  "success",
 				dangerMode: true,
 				button: false,
-				timer: 850,
+				timer: 900,
 			  });
         window.location.href='/admin'
     }

@@ -1,8 +1,8 @@
-import React,{useState,useEffect} from "react";
+import React,{useState} from "react";
 import "./style.css";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
-import { useHistory, useParams } from "react-router-dom";
+
 import swal from "sweetalert";
 
 
@@ -18,7 +18,7 @@ const AddEvent = () => {
   }
   )
 
-  const history=useHistory()
+  
 
 
   const  onChangeFile=(e)=>{

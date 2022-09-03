@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Redirect } from "react-router-dom";
 import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
   Button,
 } from "reactstrap";
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import Verification from "./Verification";
+
 
 
 
@@ -33,7 +24,7 @@ export default function TableData(props) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [image,setimage]=useState((props.info.fileName?.path))
+
   //  console.log(image)
   
 
@@ -113,7 +104,7 @@ tempfinalimage=String(finalimage.substring(10))
      3.Passport
 
 
-      {finalimage && <img src={tempfinalimage} style={{ width: "100%"}}  />} 
+      {finalimage && <img src={tempfinalimage} style={{ width: "100%"}} alt=""  />} 
       {/* hello */}
     </Typography>
   </Box>
@@ -124,7 +115,7 @@ tempfinalimage=String(finalimage.substring(10))
 
 
 
-        <td><Button color={status=="Waiting"?"secondary":"success"}   onClick={() => props.onClickUpdate(_id,status)}>{status}</Button></td>
+        <td><Button color={status==="Waiting"?"secondary":"success"}   onClick={() => props.onClickUpdate(_id,status)}>{status}</Button></td>
         <td>
           <Button
             onClick={() => props.onClickDelete(_id)}

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import TableData from "./TableData";
 import axios from "axios";
 import OrganizationTableData from "./OrganizationTableData";
 import swal from "sweetalert";
 import "./style.css";
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
+import { Table, Thead} from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 
 const onClickDelete = async (id) => {

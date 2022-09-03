@@ -1,12 +1,8 @@
-import React, { useContext, createContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import {
-  BrowserRouter as Router,
-  Switch,
   Route,
-  Link,
   Redirect,
-  useHistory,
-  useLocation
+ 
 } from "react-router-dom";
 
 import {UserContext} from '../App';

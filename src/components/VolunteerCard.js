@@ -1,11 +1,11 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
   } from 'reactstrap';
  import Badge from 'react-bootstrap/Badge';
 const VolunteerCard = (props) => {
-    const {_id,name,date,mail,organize, description,status}=props.datas;
+    const {_id,name,date,organize, description,status}=props.datas;
     // const [waiting, setwaiting] = useState(props.datas.status)
     // setwaiting(props.datas.status)
     // console.log(JSON.stringify({}))
@@ -24,7 +24,7 @@ const VolunteerCard = (props) => {
             
             <Button onClick={()=>props.removeWork(_id)  } className="btn btn-danger">Cancel</Button>
             <h3>
-            <Badge bg={status=="Accepted"?"success":"secondary"}  text= "dark" >{status}</Badge>{' '}</h3>
+            <Badge bg={status==="Accepted"?"success":"secondary"}  text= "dark" >{status}</Badge>{' '}</h3>
         
           </CardBody>
         </Card>

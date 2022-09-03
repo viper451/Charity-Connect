@@ -1,8 +1,8 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import React, { createContext, useState } from "react";
+import React, {  useState } from "react";
 import Navigation from "./components/Navigation";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Works from "./components/Works";
 import Register from "./components/Register";
@@ -20,6 +20,7 @@ import Newuser from "./components/Newuser";
 import AdminLogin from "./components/AdminLogin";
 import OrganizationList from "./components/OrganizationList";
 import Verification from "./components/Verification";
+import Home from "./components/Home"
 export const UserContext = React.createContext();
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
   return (
     <>
       <UserContext.Provider value={[user, setUser]}>
+        
         <Router>
           <Navigation />
           <Switch>
@@ -44,6 +46,11 @@ function App() {
 
             <Route exact path="/success">
               <Success />
+            </Route>
+
+            
+            <Route exact path="/home">
+              <Home />
             </Route>
 
             <Route exact path="/organizationlistregister">

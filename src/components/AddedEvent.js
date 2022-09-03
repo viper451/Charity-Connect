@@ -1,8 +1,8 @@
 import React, {useState,useContext, useEffect} from 'react';
 import {UserContext} from '../App';
 import VolunteerCard from './VolunteerCard';
-import axios from 'axios'
 import swal from 'sweetalert';
+import Announcement from 'react-announcement'
 
 const AddedEvent = () => {
     const [user,setUser]=useContext(UserContext);
@@ -69,10 +69,17 @@ const AddedEvent = () => {
 
     return (
         <>
+             <Announcement
+          title="Here is your component"
+          subtitle="The best announcement component for React is finally here. Install it in all your projects."
+          link="https://github.com/kristofferandreasen/react-announcement"
+         
+      />
         <div>
             <h4 className="text-center my-3">Added Event List for&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Events </h4>
             <h4 className="text-center my-3 text-danger">{user.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{numevents}</h4>
         </div>
+       
 
         <div className="container ">
             <div className="row">
