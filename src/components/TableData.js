@@ -6,6 +6,8 @@ import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Backdrop from '@mui/material/Backdrop';
+import Fade from '@mui/material/Fade';
 
 
 
@@ -22,8 +24,11 @@ export default function TableData(props) {
   // console.log(props);
 
   const [open, setOpen] = React.useState(false);
+  const [openname,setOpenName]=useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const handleOpenName = () => setOpenName(true);
+  const handleCloseName = () => setOpenName(false);
 
   //  console.log(image)
   
@@ -67,6 +72,19 @@ tempfinalimage=String(finalimage.substring(10))
   p: 4,
 };
 
+const stylename = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  height:220,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 //   const str=fileName?.path
 //   let finalpath=fileName?.path!==undefined?String(str.substring(10)):'https://www.google.com/imgres?imgurl=https%3A%2F%2Fassets-global.website-files.com%2F5f689f82910c6b4f1ffb855b%2F613b1f91b195318100f7d27e_aadhar%2520card%25402x-min.jpg&imgrefurl=https%3A%2F%2Fdocsumo.com%2Fuse-cases%2Faadhar-card-verification-api&tbnid=tSN7d3aBXJblQM&vet=12ahUKEwjZltbq8vX5AhWTyqACHd29De0QMygBegUIARDfAQ..i&docid=wRC_wVljd7BRAM&w=2880&h=1920&q=aadhar%20card&ved=2ahUKEwjZltbq8vX5AhWTyqACHd29De0QMygBegUIARDfAQ'
 // finalimage=require(finalpath)
@@ -81,7 +99,35 @@ tempfinalimage=String(finalimage.substring(10))
     <tbody >
 
       <tr>
-        <td>{name}</td>
+        <td><b onClick={handleOpenName}>{name}</b>
+        {/* <Button onClick={handleOpenName}>Open modal</Button> */}
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={openname}
+        onClose={handleCloseName}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 1500,
+        }}
+      >
+        <Fade in={openname}>
+          <Box sx={stylename}>
+            <Typography id="transition-modal-title" variant="h6" component="h2">
+             Description
+            </Typography>
+            <Typography id="transition-modal-description" sx={{ mt: 3 }}>
+           <b> {description}</b> 
+            </Typography>
+          </Box>
+        </Fade>
+      </Modal>
+        
+    
+        
+        
+        </td>
         <td>{mail}</td>
         <td>{date}</td>
         <td>{age}</td>

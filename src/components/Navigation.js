@@ -16,7 +16,12 @@ import {
   } from "react-router-dom";
 import charityconnect from './logos/charityconnect.png';
 import {UserContext} from '../App';
-
+import HomeIcon from '@mui/icons-material/Home';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import LoginIcon from '@mui/icons-material/Login';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import AccountCircleSharpIcon from '@mui/icons-material/AccountCircleSharp';
+import EventIcon from '@mui/icons-material/Event';
 
 const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +48,7 @@ const Navigation = (props) => {
             <NavLink>
               <Link className="nav-custom" to="/">
               <button className="btn btn-warning btn-sm">
-                Home
+                Home<HomeIcon/>
                 </button>
                 </Link>
               </NavLink>
@@ -55,7 +60,7 @@ const Navigation = (props) => {
               <NavLink>
                 <Link className="nav-custom" to="/addedevent">
                 <button className="btn btn-info btn-sm">
-                  Added Events</button></Link>
+                  Added Events<EventIcon/></button></Link>
                 </NavLink>
               </NavItem>
             }
@@ -86,13 +91,13 @@ const Navigation = (props) => {
               <Link className="nav-custom" to="/login">
                 {
                   (!user.name && organizaiton===null) && <button className="btn btn-success btn-sm">
-                  Login
+                  Login  <LoginIcon/>
                   </button>
                 }
                 
                 {
                   (user.name || organizaiton!==null) && <button className="btn btn-danger btn-sm">
-                  Account
+                  Account <AccountCircleSharpIcon/>
                   </button>
                 }
 
@@ -104,7 +109,7 @@ const Navigation = (props) => {
             {
               !user.name && <NavLink>
               <Link to="/newuser">
-              <button style={{width:"80px"}} className="btn btn-primary btn-sm  ">Register</button>
+              <button  className="btn btn-primary btn-sm  ">Register <HowToRegIcon/></button>
               </Link>
               
               </NavLink> 
@@ -115,7 +120,7 @@ const Navigation = (props) => {
                 {
                   (organizaiton==null && !user.name) && <NavLink>
                 <Link to="/loginadmin">
-                <button style={{width:"70px"}} className="btn btn-secondary btn-sm">Admin</button>
+                <button  className="btn btn-secondary btn-sm">Admin<SupervisorAccountIcon/></button>
                 </Link>
                 </NavLink>
 }

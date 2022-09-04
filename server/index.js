@@ -132,6 +132,7 @@ client.connect((err) => {
         name:req.body.name,
         date:req.body.date,
         mail:req.body.mail,
+        age:req.body.age,
         description:req.body.description,
         organize:req.body.organize,
         location:req.body.location,

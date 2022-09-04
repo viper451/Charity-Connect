@@ -4,6 +4,7 @@ import Data from './Data';
 import NewCard from './NewCard';
 import Announcement from 'react-announcement'
 import logo from './logos/logo.png'
+import BackToTop from './BackToTop';
 const Works = () => {
 
     let [Events,setEvents]=useState();
@@ -71,6 +72,7 @@ const Works = () => {
                 Events?.map(data=> <NewCard data={data} filename={data.fileName}></NewCard>)
                 
             }   
+             
                <Announcement
           title="Here is your component"
           subtitle="The best announcement component for React is finally here. Install it in all your projects."
@@ -81,7 +83,7 @@ const Works = () => {
           closeIconSize={30}
       />      
             </div>
-         
+            <BackToTop />
         </div>
         
     );

@@ -86,6 +86,7 @@ const Register = () => {
     formData.append('name',name)
     formData.append('date',date)
     formData.append('mail',mail)
+    formData.append('age',age)
     formData.append('description',description)
     formData.append('organize',organize)
     formData.append('location',location)
@@ -151,6 +152,7 @@ else{
     var organize = document.getElementById("organize").value;
     var description = document.getElementById("description").value;
     var location = document.getElementById("location").value;
+    
  
 
     //console.log(name+" : "+number+" : "+mail+" : "+address);
