@@ -127,6 +127,10 @@ client.connect((err) => {
     const pd = req.body;
       console.log(pd);
       console.log(req.file)
+      if(req.file===undefined)
+      {
+       res.send({data:false,statement:"Please Upload A file for verification"}); return;
+      }
 
       const newArticle={
         name:req.body.name,
@@ -155,7 +159,8 @@ client.connect((err) => {
 
 
     }
-     
+    console.log(req.file===undefined)
+   
     collection.insertOne(newArticle).then((result) => {
       res.send({data:true});
     });
