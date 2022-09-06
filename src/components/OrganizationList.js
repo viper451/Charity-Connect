@@ -47,7 +47,7 @@ const OrganizationList = () => {
       });
   }, [datas]);
 
-  //  console.log(datas)
+    console.log(datas)
 
   return (
     <>
@@ -72,6 +72,7 @@ const OrganizationList = () => {
             <th style={{ textAlign: "center" }}>Volunteer Required</th>
             <th style={{ textAlign: "center" }}>Location</th>
             <th style={{ textAlign: "center" }}>Description</th>
+            <th style={{ textAlign: "center" }}>Verification</th>
             <th style={{ textAlign: "center" }}>Action</th>
           </tr>
         </Thead>

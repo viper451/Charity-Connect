@@ -11,14 +11,12 @@ import Fade from "@mui/material/Fade";
 export default function OrganizationTableData(props) {
   // console.log(props)
   const [information, setInformation] = useState(props.info);
-  useEffect(
-    () => setInformation(props.info),
-
-    [props.info]
-  );
+  useEffect(() => {
+    setInformation(props.info);
+  }, [props.info]);
 
   //  console.log(information)
-  console.log(information);
+  console.log(typeof information);
 
   const {
     name,
@@ -108,7 +106,7 @@ export default function OrganizationTableData(props) {
         <td style={{ textAlign: "center" }}>{volnumber}</td>
         <td style={{ textAlign: "center" }}>{location}</td>
         <td style={{ textAlign: "center" }}>{organize}</td>
-        <td>
+        <td style={{ textAlign: "center" }}>
           {" "}
           <Button color="primary" onClick={handleOpen}>
             Link
