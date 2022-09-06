@@ -4,15 +4,15 @@ import axios from "axios";
 import OrganizationTableData from "./OrganizationTableData";
 import swal from "sweetalert";
 import "./style.css";
-import { Table, Thead} from 'react-super-responsive-table';
-import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
+import { Table, Thead } from "react-super-responsive-table";
+import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
 const onClickDelete = async (id) => {
   const variables = {
     id: id,
   };
 
-await axios.post(
+  await axios.post(
     "http://localhost:3006/deleteActivityOrganization",
     variables
   );
@@ -30,12 +30,11 @@ await axios.post(
   swal({
     title: "ORGNAZATION!",
     text: "Deleted Successfully!",
-    icon:  "success",
+    icon: "success",
     dangerMode: true,
     button: false,
     timer: 850,
   });
-  
 };
 
 const OrganizationList = () => {
@@ -52,20 +51,28 @@ const OrganizationList = () => {
 
   return (
     <>
-    <div className="classfontfamily">
-      <b>
-    Registered Organization List </b> <br/><br/></div>
-      <Table style={{ maxWidth: "1000px", "borderWidth":"0.1px", 'borderColor':"#aaaaaa", 'borderStyle':'solid'}} className="mx-auto mt-6">
+      <div className="classfontfamily">
+        <b>Registered Organization List </b> <br />
+        <br />
+      </div>
+      <Table
+        style={{
+          maxWidth: "1000px",
+          borderWidth: "0.1px",
+          borderColor: "#aaaaaa",
+          borderStyle: "solid",
+        }}
+        className="mx-auto mt-6"
+      >
         <Thead>
           <tr>
-       
-            <th>Organization Name</th>
-            <th>Email</th>
-            <th>Registration Date</th>
-            <th>Volunteer Required</th>
-            <th>Location</th>
-            <th>Description</th>
-            <th>Action</th>
+            <th style={{ textAlign: "center" }}>Organization Name</th>
+            <th style={{ textAlign: "center" }}>Email</th>
+            <th style={{ textAlign: "center" }}>Registration Date</th>
+            <th style={{ textAlign: "center" }}>Volunteer Required</th>
+            <th style={{ textAlign: "center" }}>Location</th>
+            <th style={{ textAlign: "center" }}>Description</th>
+            <th style={{ textAlign: "center" }}>Action</th>
           </tr>
         </Thead>
         {datas.map((key) => (

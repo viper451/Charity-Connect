@@ -167,15 +167,42 @@ client.connect((err) => {
   });
 
   //ADD ORGANIZATION EVENT AND DISPLAY IT IN ADMIN
-  app.post("/eventinfoadd", (req, res) => {
+  app.post("/eventinfoadd",upload.single("photo"), (req, res) => {
 
     const pd = req.body;
-    // console.log(pd);
+     console.log(pd);
+    // console.log(req.file)
+      if(req.file===undefined)
+      {
+       res.send({data:false,statement:"Please Upload A file for verification"}); return;
+      }
+
     if(req.body.volnumber<=0)
     {
       res.send({ data: false,statement:"Enter Proper Number of Volunteer(More then 0 😒)" });return;
     }
-    event.insertOne(pd).then((result) => {
+    
+    const OrganizationInfo={
+      name:req.body.name,
+      date:req.body.date,
+      mail:req.body.mail,
+      volnumber:req.body.volnumber,
+      description:req.body.description,
+      organize:req.body.organize,
+      location:req.body.location,
+
+      fileName:{
+        data:req.file.filename,
+        path:req.file.path,
+        contentType:'image/png'
+      }
+    }
+
+
+
+
+
+    event.insertOne(OrganizationInfo).then((result) => {
       res.send({data:true});
     });
   });

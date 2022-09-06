@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import CorporateFareIcon from '@mui/icons-material/CorporateFare';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import LockIcon from '@mui/icons-material/Lock';
-
+import CorporateFareIcon from "@mui/icons-material/CorporateFare";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import LockIcon from "@mui/icons-material/Lock";
 
 function OrganizationListRegister() {
   const history = useHistory();
@@ -38,43 +37,43 @@ function OrganizationListRegister() {
 
   return (
     <>
-    <div className="classfontfamily">
-      <h1>REGISTER AS ORGANIZATION</h1> </div>
-    <div className="user_card">
-    
-      <form onSubmit={registerUser}>
-      <CorporateFareIcon/>
-        <input
-          value={orgnaizationname}
-          onChange={(e) => setName(e.target.value)}
-          type="text"
-          placeholder="Organization Name"
-          required
-        />
-        <br />
-        <AccountBoxIcon/> 
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Email"
-          required
-        />
-        <br />
-        <LockIcon/> 
-        <input
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-          placeholder="Password"
-          required
-        />
-        <br />
-        <button type="submit"  value="login"className="btn btn-primary">
-          Register
+      <div className="classfontfamily">
+        <h1>REGISTER AS ORGANIZATION</h1>{" "}
+      </div>
+      <div className="user_card">
+        <form onSubmit={registerUser}>
+          <CorporateFareIcon />
+          <input
+            value={orgnaizationname}
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            placeholder="Organization Name"
+            required
+          />
+          <br />
+          <AccountBoxIcon />
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            placeholder="Email"
+            required
+          />
+          <br />
+          <LockIcon />
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            placeholder="Password"
+            required
+          />
+          <br />
+          <button type="submit" value="login" className="btn btn-primary">
+            Register
           </button>
-      </form>
-    </div>
+        </form>
+      </div>
     </>
   );
 }
