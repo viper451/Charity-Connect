@@ -16,17 +16,23 @@ const VolunteerCard = (props) => {
     
     return (
         <Card className="m-3" style={{maxWidth:"20rem", minHeight:"22rem"}}>
+            <div className="gradient-border">
           <CardImg top width="100%" src="https://sccnhub.com/images/2018/11/29/istock-490453735-2-copy.jpg" alt="Card image cap" />
           <CardBody>
+        
             <CardTitle tag="h5">{organize} : {name}</CardTitle>
-            <CardSubtitle tag="h6" className="mb-2 text-muted">Date : {date}</CardSubtitle>
-            <CardText>{description}</CardText>
+            <CardSubtitle tag="h6" className="mb-2 text-muted">Date : {date}</CardSubtitle> <br/>
+            <CardSubtitle tag="h6" ><b color="black">{description}</b></CardSubtitle>
+            <br/>
+              
+ 
             
             <Button onClick={()=>props.removeWork(_id)  } className="btn btn-danger">Cancel</Button>
             <h3>
             <Badge bg={status==="Accepted"?"success":"secondary"}  text= "dark" >{status}</Badge>{' '}</h3>
         
           </CardBody>
+          </div>
         </Card>
       
     );

@@ -7,6 +7,8 @@ const AddedEvent = () => {
   const [user, setUser] = useContext(UserContext);
   const [data, setData] = useState([]);
   const [numevents, setNumEvents] = useState(0);
+  let [color,setColor]=useState('')
+
   useEffect(() => {
     fetch("http://localhost:3006/task?mail=" + user.mail)
       .then((response) => response.json())
@@ -15,9 +17,10 @@ const AddedEvent = () => {
       });
 
     userEvents();
+    ColorChange();
 
     //  console.log(numevents)
-  }, [numevents]);
+  }, [numevents,color]);
 
   const userEvents = async () => {
     const variable = { name: user.name };
@@ -30,7 +33,6 @@ const AddedEvent = () => {
     })
       .then((res) => res.json())
       .then((data, err) => {
-        console.log(JSON.stringify(data) + " " + err);
         setNumEvents(data.statement);
       });
   };
@@ -59,7 +61,36 @@ const AddedEvent = () => {
     console.log(items);
     setData(items);
     setNumEvents(numevents - 1);
+    removeWork={removeWork}
+     
+    
   }
+  const ColorChange=()=>{
+    if(numevents>=20)
+     {
+      setColor('red')
+     }
+    else if(numevents>=15)
+     {
+      setColor('orange')
+     }
+     else if(numevents>=10)
+     {
+      setColor('cyan')
+     }
+   else  if(numevents>=5)
+     {
+      setColor('green')
+     }
+  else
+     {
+      setColor('grey')
+ 
+     }
+     console.log(JSON.stringify(color)+" "+numevents)
+     color=JSON.stringify(color)
+  }
+
 
   return (
     <>
@@ -67,11 +98,13 @@ const AddedEvent = () => {
         <h4 className="text-center my-3">
           Added Event List for&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Events{" "}
         </h4>
-        <h4 className="text-center my-3 text-danger">
+        {/* <h4 className="text-center my-3"> */}
+          <h4   className="text-center my-3" style={{ color: color }} >
           {user.name}
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {numevents}
-        </h4>
+          </h4>
+        {/* </h4> */}
       </div>
 
       <div className="container ">

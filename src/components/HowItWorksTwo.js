@@ -13,7 +13,7 @@ const HowItWorksTwo = () => {
                 <Grid item sm={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Box sx={{ textAlign: 'center' }}>
                         <Font family="Acme">
-                            <h3 style={{ fontSize: '5vh', marginBottom: 0 }}  data-aos="fade-left">
+                            <h3 style={{ fontSize: '5vh', marginBottom: 0, color:'#EE4C7C' }}  data-aos="fade-left">
                                 <span>Get daily update and notification and number of participation in various events  </span>
                             </h3>
                         </Font>

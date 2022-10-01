@@ -13,7 +13,7 @@ const HowItWorksFour = () => {
                 <Grid item sm={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Box sx={{ textAlign: 'center' }}>
                         <Font family="Acme">
-                            <h3 style={{ fontSize: '5vh', marginBottom: 0 }}  data-aos="fade-left">
+                            <h3 style={{ fontSize: '5vh', marginBottom: 0, color:'#EE4C7C' }}  data-aos="fade-left">
                                 <span>Available in diffrent other languages as per the need of the user </span>
                             </h3>
                         </Font>

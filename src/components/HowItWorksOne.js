@@ -12,6 +12,16 @@ AOS.init({
 const HowItWorksOne = () => {
   return (
     <div>
+         <Box sx={{ textAlign: 'center' }} >
+                            <Font family="Acme">
+                                <h3 style={{ fontSize: '10vh', marginBottom: 0 , color:'#EE4C7C' }}>
+                                    <span>CharityConnect</span>
+                                  
+                                </h3>
+                        
+                            </Font>
+                            
+                        </Box>
         <Container fixed>
             <Grid container sx={{ height: '100vh' }}>
                 <Grid item sm={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -25,7 +35,7 @@ const HowItWorksOne = () => {
                 <Grid item sm={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Box sx={{ textAlign: 'center' }}>
                         <Font family="Acme">
-                            <h3 style={{ fontSize: '5vh', marginBottom: 0 }}  data-aos="fade-right">
+                            <h3 style={{ fontSize: '5vh', marginBottom: 0, color:'#EE4C7C' }}  data-aos="fade-right">
                                 <span>Get ready to participate and register in various events of your choice</span>
                             </h3>
                         </Font>
