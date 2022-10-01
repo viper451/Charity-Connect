@@ -20,7 +20,7 @@ const HowItWorksThree = () => {
                 <Grid item sm={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Box sx={{ textAlign: 'center' }}>
                         <Font family="Acme">
-                            <h3 style={{ fontSize: '5vh', marginBottom: 0 }}>
+                            <h3 style={{ fontSize: '5vh', marginBottom: 0 }}  data-aos="fade-right">
                                 <span>Fill the form to register for the event</span>
                             </h3>
                         </Font>
