@@ -4,6 +4,11 @@ import { Form, FormGroup, Label, Input } from "reactstrap";
 import { useHistory, useParams } from "react-router-dom";
 import Data from "./Data";
 import { UserContext } from "../App";
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 import swal from "sweetalert";
 
@@ -183,7 +188,12 @@ const Register = () => {
         {organizaiton === null ? (
           <Form onSubmit={saveData}>
             <FormGroup>
-              <Label for="name">Name</Label>
+              <Label for="name">Name 
+         
+               
+              
+              
+              </Label>
               <Input
                 type="text"
                 name="name"
@@ -255,12 +265,28 @@ const Register = () => {
                 required
               />
             </FormGroup>
+            <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography>Background Verification</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Typography>
+            {/* <b>Aadhar Card Pan Card Passport (Any one)</b> */}
+            Please Upload any one of the following files for Verification process :-)<br />
+            1.Aadhar Card <br />
+            2.Pan Card  <br /> 
+            3.Passport  <br />
 
+          </Typography>
+        </AccordionDetails>
+      </Accordion> 
+      <br />
             <FormGroup>
-              <Label for="banner">
-                Background Verification(
-                <b>Aadhar Card Pan Card Passport (Any one)</b>)
-              </Label>
+             
               <Input
                 type="file"
                 name="photo"
@@ -343,6 +369,7 @@ const Register = () => {
                 placeholder=""
               />
             </FormGroup>
+            
 
             <FormGroup>
               <Label for="banner">

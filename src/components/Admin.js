@@ -15,6 +15,7 @@ const Admin = () => {
           className="card card-custom m-4"
           style={{ width: "20rem", minHeight: "25rem" }}
         >
+              <div className="gradient-border">
             <Link className="admin-link" to="/volunteerlist">
           <img
             className="card-img-top"
@@ -22,6 +23,7 @@ const Admin = () => {
             height="330px"
             alt="Card  cap"
           />
+          
           <div className="card-body">
             <p className="card-text text-center ">
               {" "}
@@ -31,11 +33,13 @@ const Admin = () => {
             </p>
           </div>
           </Link>
+          </div>
         </div>
         <div
           className="card card-custom m-4"
           style={{ width: "20rem", minHeight: "25rem" }}
         >
+                <div className="gradient-border">
                 <Link className="admin-link" to="/organizationlist">
           <img
             className="card-img-top"
@@ -54,11 +58,13 @@ const Admin = () => {
             </p>
           </div>
           </Link>
+          </div>
         </div>
         <div
           className="card card-custom m-4"
           style={{ width: "20rem", minHeight: "25rem" }}
         >
+               <div className="gradient-border">
                 <Link className="admin-link" to="/addevent">
           <img
             className="card-img-top"
@@ -74,6 +80,7 @@ const Admin = () => {
             </p>
           </div>
           </Link>
+          </div>
         </div>
       </div>
     </div>

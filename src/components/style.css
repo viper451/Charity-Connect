@@ -71,6 +71,46 @@ body{
 
 }
 
+.gradient-border {
+    --borderWidth: 3px;
+  
+    position: relative;
+    border-radius: var(--borderWidth);
+  }
+  .gradient-border:after {
+    content: '';
+    color: white;
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 250% 200%;
+  }
+  
+  
+  @keyframes animatedgradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }
+  
+
+
+
+
+
+
 
 
 
@@ -80,11 +120,16 @@ body{
     font-weight: bold;
 }
 
+.card-text:hover {
+ color:white;
+ text-decoration: none;
+}
+
 
  
 .card-custom{
     border: none !important;
-    background-color:aqua ;
+    background-color:lightgray ;
     color: aliceblue;
     font-size:14px;
     border-radius: 20px;
@@ -155,16 +200,16 @@ body{
 }
 
 
-.back_to_top {
+/* .back_to_top {
     width: 40px;
     height: 50px;
     position: sticky !important;
     border: 1px solid transparent !important;
     border-radius: 50% !important;
     bottom: 2%;
-    left:100%;
+    left:150%;
     background-color: #1266f1 !important;
-}
+} */
 
 .back_to_top svg {
     color: #fff;
@@ -175,3 +220,56 @@ body{
 }
 
 
+.two {
+    background-color: #FFEBCD;
+  }
+  
+  .three {
+    background-color: #7FDBFF;
+  }
+  
+  .four {
+    background-color: #F7CAC9;
+  }
+  
+  .five {
+    background-color: #f7ffc4;
+  }
+
+
+  .tilt-left {
+    transform: perspective(500px);
+    transform-style: preserve-3d;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .tilt-image-left {
+    width: 90vh;
+    position: absolute;
+    display: inline-block;
+    transform: rotateX(0deg) rotatey(20deg);
+  }
+
+
+  
+.tilt-right {
+    transform: perspective(500px);
+    transform-style: preserve-3d;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .tilt-image-right {
+    width: 90vh;
+    position: absolute;
+    display: inline-block;
+    transform: rotateX(0deg) rotatey(-20deg);
+  }
+  

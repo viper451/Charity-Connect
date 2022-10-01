@@ -27,8 +27,10 @@ const NewCard = (props) => {
         style={{ width: "14rem", minHeight: "12rem" }}
       >
         <img className="card-img-top" src={finalpath} alt="" />
+        <div className="gradient-border">
         <div className="card-body">
           <p className="card-text text-center ">{title}</p>
+        </div>
         </div>
       </div>
     </Link>

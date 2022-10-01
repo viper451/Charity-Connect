@@ -13,10 +13,7 @@
   }
 }
 
-.checkout{
-  color: #61dafb;
 
-}
 
 .App-header {
   background-color: #282c34;
@@ -29,9 +26,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
@@ -41,3 +35,6 @@
     transform: rotate(360deg);
   }
 }
+
+
+

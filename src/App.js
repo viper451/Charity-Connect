@@ -20,7 +20,7 @@ import Newuser from "./components/Newuser";
 import AdminLogin from "./components/AdminLogin";
 import OrganizationList from "./components/OrganizationList";
 import Verification from "./components/Verification";
-import Home from "./components/Home"
+import Instruction from "./components/Instruction";
 export const UserContext = React.createContext();
 
 function App() {
@@ -49,8 +49,8 @@ function App() {
             </Route>
 
             
-            <Route exact path="/home">
-              <Home />
+            <Route exact path="/instruction">
+              <Instruction />
             </Route>
 
             <Route exact path="/organizationlistregister">

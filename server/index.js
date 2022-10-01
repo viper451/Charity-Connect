@@ -75,8 +75,7 @@ client.connect((err) => {
 
   //GET ORGANIZATION DATA
   app.get("/organizationinfo", (req, res) => {
-    event
-      .find({}).sort({_id:-1}) //find all data from database
+    event.find({}).sort({_id:-1}) //find all data from database
       .toArray((err, document) => {
         // to array is being used to load all data from db
         res.send(document); //data send to html

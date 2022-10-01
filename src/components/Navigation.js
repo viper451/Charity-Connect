@@ -8,6 +8,7 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import { useParams} from "react-router-dom";
 import "./style.css";
 import { Link } from "react-router-dom";
 import charityconnect from "./logos/charityconnect.png";
@@ -19,6 +20,7 @@ import HowToRegIcon from "@mui/icons-material/HowToReg";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import EventIcon from "@mui/icons-material/Event";
 import CorporateFareRoundedIcon from "@mui/icons-material/CorporateFareRounded";
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 
 const Navigation = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,6 +41,19 @@ const Navigation = (props) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <div id="google_translate_element"></div>
+        
+                <NavItem>
+                  <NavLink>
+                    <Link className="nav-custom" to="/instruction">
+                      <button className="btn btn-info btn-sm">
+                          About Us
+                        <InfoOutlinedIcon />
+                      </button>
+                    </Link>
+                  </NavLink>
+                </NavItem>
+            
+              
               <NavItem>
                 <NavLink>
                   <Link className="nav-custom" to="/">

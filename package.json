@@ -21,6 +21,7 @@
     "react-badges": "^1.0.1",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^17.0.1",
+    "react-font": "^1.2.1",
     "react-moment": "^1.1.2",
     "react-notifications-component": "^4.0.1",
     "react-router-dom": "^5.2.0",

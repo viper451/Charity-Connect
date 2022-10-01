@@ -8,12 +8,19 @@ const Card = (props) => {
   return (
     <Link to={"/register/" + id}>
       <div
-        className="card card-custom m-2"
+        className="card card-custom m-4"
         style={{ width: "14rem", minHeight: "12rem" }}
       >
+           <div className="gradient-border">
         <img className="card-img-top" src={picture} alt="Card  cap" />
+     
         <div className="card-body">
-          <p className="card-text text-center ">{name}</p>
+      
+          <p className="card-text text-center" style={{ textDecoration: 'none' }} >
+
+            {name}
+            </p>
+            </div>
         </div>
       </div>
     </Link>
