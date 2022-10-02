@@ -8,6 +8,7 @@ const AddedEvent = () => {
   const [data, setData] = useState([]);
   const [numevents, setNumEvents] = useState(0);
   let [color,setColor]=useState('')
+  let [badge,setBadge]=useState('')
 
   useEffect(() => {
     fetch("http://localhost:3006/task?mail=" + user.mail)
@@ -69,38 +70,46 @@ const AddedEvent = () => {
     if(numevents>=20)
      {
       setColor('red')
+      setBadge('Elite')
      }
     else if(numevents>=15)
      {
       setColor('orange')
+      setBadge('Master')
      }
      else if(numevents>=10)
      {
       setColor('cyan')
+      setBadge('Specialist')
      }
    else  if(numevents>=5)
      {
       setColor('green')
+      setBadge('Apprentice')
      }
   else
      {
       setColor('grey')
+      setBadge('Beginner')
  
      }
-     console.log(JSON.stringify(color)+" "+numevents)
+    //  console.log(JSON.stringify(color)+" "+numevents)
      color=JSON.stringify(color)
+     badge=JSON.stringify(badge)
   }
 
 
   return (
     <>
       <div>
+      <h3  className="text-center my-3" style={{ color: color }}><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{badge}</b></h3>
         <h4 className="text-center my-3">
-          Added Event List for&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Events{" "}
+
+          Added Event List for&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Events{" "}
         </h4>
         {/* <h4 className="text-center my-3"> */}
           <h4   className="text-center my-3" style={{ color: color }} >
-          {user.name}
+           {user.name}  
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {numevents}
           </h4>
