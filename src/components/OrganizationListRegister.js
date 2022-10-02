@@ -74,6 +74,17 @@ function OrganizationListRegister() {
           </button>
         </form>
       </div>
+
+
+
+
+
+
+
+
+
+
+      
     </>
   );
 }

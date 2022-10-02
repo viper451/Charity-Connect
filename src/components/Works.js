@@ -23,10 +23,10 @@ const Works = () => {
   return (
     <div className="container">
       <div>
-        <h4 className=" my-5 text-center">
+        <h2 className=" my-5 text-center" style={{ color:"white"  }}>
           जो जन दान-दक्षिणा देते हैं, वे स्वर्गलोक में उच्च स्थान प्राप्त करते
           हैं। <span className="font-weight-bold">- ऋग्वेद</span>{" "}
-        </h4>
+        </h2>
       </div>
 
       <div className="row mt-4 justify-content-center align-items-center">

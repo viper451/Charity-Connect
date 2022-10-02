@@ -52,7 +52,7 @@ const OrganizationList = () => {
   return (
     <>
       <div className="classfontfamily">
-        <b>Registered Organization List </b> <br />
+        <b style={{ textAlign: "center",color:"white" }}>Registered Organization List </b> <br />
         <br />
       </div>
       <Table

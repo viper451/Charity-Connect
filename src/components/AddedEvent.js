@@ -103,7 +103,7 @@ const AddedEvent = () => {
     <>
       <div>
       <h3  className="text-center my-3" style={{ color: color }}><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{badge}</b></h3>
-        <h4 className="text-center my-3">
+        <h4 className="text-center my-3" style={{ color:"white"  }}>
 
           Added Event List for&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Events{" "}
         </h4>

@@ -63,7 +63,7 @@ const VolunteerList = () => {
   return (
     <>
       <div className="classfontfamily">
-        <b>Registered Volunteer List </b>
+        <b style={{ textAlign: "center",color:"white" }}>Registered Volunteer List </b>
       </div>
       <br />
       <br />

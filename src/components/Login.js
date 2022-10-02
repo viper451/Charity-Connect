@@ -81,7 +81,7 @@ const Login = () => {
         <div className="mini-box">
           {!user.mail && organizaiton == null && (
             <>
-              <h5 className="text-center login-text my-4">Login With</h5>
+              <h5 className="text-center login-text my-4 " >Login With</h5>
               <button onClick={SignInGoogle} className="btn btn-custom">
                 <div className="img-logo">
                   <img
@@ -90,7 +90,7 @@ const Login = () => {
                     alt=""
                   />
                 </div>
-                <b>Login With Google</b>
+                <b style={{ color:"white"  }}>Login With Google</b>
               </button>
               <p className="text-center my-3">
                 Don't have an account?{" "}
@@ -99,14 +99,14 @@ const Login = () => {
                   rel="noreferrer" 
                   href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp"
                 >
-              <b>   Create an account</b> 
+              <b style={{ color:"white"  }}>   Create an account</b> 
                 </a>{" "}
               </p>
 
-              <p className="text-center my-3">
-                Don't have an account?{" "}
+              <p className="text-center my-3" >
+                Have an account?{" "}
                 <Link to={"/organizationlistlogin"}>
-              <b>  Login as Organization{" "} </b>  
+              <b style={{ color:"white"  }}>  Login as Organization{" "} </b>  
                 </Link>{" "}
               </p>
             </>

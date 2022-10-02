@@ -188,7 +188,7 @@ const Register = () => {
         {organizaiton === null ? (
           <Form onSubmit={saveData}>
             <FormGroup>
-              <Label for="name">Name 
+              <Label for="name" style={{ color:"white"  }}>Name 
          
                
               
@@ -206,7 +206,7 @@ const Register = () => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="email">Email</Label>
+              <Label for="email" style={{ color:"white"  }}>Email</Label>
               <Input
                 type="email"
                 name="email"
@@ -217,7 +217,7 @@ const Register = () => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="location">
+              <Label for="location" style={{ color:"white"  }}>
                 Age <b>(Min AGE:12)</b>
               </Label>
               <Input
@@ -231,7 +231,7 @@ const Register = () => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="location">Location</Label>
+              <Label for="location" style={{ color:"white"  }}>Location</Label>
               <Input
                 type="text"
                 name="location"
@@ -242,18 +242,19 @@ const Register = () => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="description">Description</Label>
+              <Label for="description" style={{ color:"white"  }}>Description</Label>
               <Input
                 type="text"
                 name="description"
                 id="description"
                 placeholder="Enter Description"
+                
                 required
               />
             </FormGroup>
 
             <FormGroup>
-              <Label for="organize">Volunteer Work</Label>
+              <Label for="organize" style={{ color:"white"  }}>Volunteer Work</Label>
               <Input
                 type="text"
                 name="organize"
@@ -271,7 +272,7 @@ const Register = () => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Background Verification</Typography>
+          <Typography >Background Verification</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
@@ -304,7 +305,7 @@ const Register = () => {
         ) : (
           <Form onSubmit={saveDataOrganization}>
             <FormGroup>
-              <Label for="name">Organization Name</Label>
+              <Label for="name" style={{ color:"white"  }}>Organization Name</Label>
               <Input
                 type="text"
                 name="name"
@@ -315,7 +316,7 @@ const Register = () => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="email">Organization Email</Label>
+              <Label for="email" style={{ color:"white"  }}>Organization Email</Label>
               <Input
                 type="email"
                 name="email"
@@ -326,7 +327,7 @@ const Register = () => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="location">Volunteer Required </Label>
+              <Label for="location" style={{ color:"white"  }}>Volunteer Required </Label>
               <Input
                 type="number"
                 name="volnumber"
@@ -338,7 +339,7 @@ const Register = () => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="location">Location</Label>
+              <Label for="location" style={{ color:"white"  }}>Location</Label>
               <Input
                 type="text"
                 name="location"
@@ -349,7 +350,7 @@ const Register = () => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="description">Description</Label>
+              <Label for="description" style={{ color:"white"  }}>Description</Label>
               <Input
                 type="text"
                 name="description"
@@ -360,7 +361,7 @@ const Register = () => {
             </FormGroup>
 
             <FormGroup>
-              <Label for="organize">Organization Work</Label>
+              <Label for="organize" style={{ color:"white"  }}>Organization Work</Label>
               <Input
                 type="text"
                 name="organize"
@@ -372,7 +373,7 @@ const Register = () => {
             
 
             <FormGroup>
-              <Label for="banner">
+              <Label for="banner" >
                 Organization Verification(<b>Certificate </b>)
               </Label>
               <Input
