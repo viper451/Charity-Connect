@@ -84,7 +84,7 @@ const Login = () => {
 
   
   return (
-    <div >
+    <div  className="res-login">
       <div className="login-box mx-auto">
         <div className="mini-box">
           {!user.mail && organizaiton == null && (
