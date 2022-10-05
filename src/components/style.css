@@ -203,12 +203,13 @@ a {
 .user_card {
     width: 650px;
     height: fit-content;
+    color: whitesmoke;
      margin-top: 10%;
      margin-left: 35%;
     justify-content: center;
-    background: #C9FFBF;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFAFBD, #C9FFBF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: #07b39b;
+    background: -webkit-linear-gradient(to right,#000000, #DC143C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right,#000000,#DC143C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     position: relative;
   
     justify-content: center;
@@ -221,17 +222,81 @@ a {
 
 }
 
+@media only screen and (max-width: 978px) {
+  .user_card {
+    width: 450px;
+    height: fit-content;
+    color: whitesmoke;
+     margin-top: 10%;
+     margin-left: 35%;
+    justify-content: center;
+    background-color: #07b39b;
+    background: -webkit-linear-gradient(to right,#000000, #DC143C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000000,#DC143C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+    position: relative;
+  
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
 
-/* .back_to_top {
-    width: 40px;
-    height: 50px;
-    position: sticky !important;
-    border: 1px solid transparent !important;
-    border-radius: 50% !important;
-    bottom: 2%;
-    left:150%;
-    background-color: #1266f1 !important;
-} */
+}
+}
+
+@media only screen and (max-width: 688px) {
+  .user_card {
+    width: 300px;
+    height: fit-content;
+    color: whitesmoke;
+     margin-top: 10%;
+     margin-left: 35%;
+    justify-content: center;
+    background-color: #07b39b;
+    background: -webkit-linear-gradient(to right,#000000, #DC143C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000000,#DC143C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+    position: relative;
+  
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+
+}
+}
+
+
+@media only screen and (max-width: 450px) {
+  .user_card {
+    width: 200px;
+    height:fit-content;
+    color: whitesmoke;
+     margin-top: 10%;
+     margin-left: 35%;
+    justify-content: center;
+    background-color: #07b39b;
+    background: -webkit-linear-gradient(to right,#000000, #DC143C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #000000,#DC143C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
+    position: relative;
+  
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+
+}
+}
+
+
+
 
 .back_to_top svg {
     color: #fff;
@@ -294,6 +359,9 @@ a {
     transform: rotateX(0deg) rotatey(20deg);
   }
 
+.btn btn-outline-dark{
+  color: white;
+}
 
   
 .tilt-right {

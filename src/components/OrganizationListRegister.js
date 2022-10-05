@@ -37,39 +37,48 @@ function OrganizationListRegister() {
 
   return (
     <>
-      <div className="classfontfamily">
-        <h1>REGISTER AS ORGANIZATION</h1>{" "}
-      </div>
-      <div className="user_card">
+ 
+     
+      <div className='user_card'>
         <form onSubmit={registerUser}>
-          <CorporateFareIcon />
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+    <h3> REGISTER AS ORGANIZATION </h3>
+</div>
+             <div className="mb-3">
+          <label>  <CorporateFareIcon />Organization Name </label>
           <input
             value={orgnaizationname}
+            className="form-control"
             onChange={(e) => setName(e.target.value)}
             type="text"
             placeholder="Organization Name"
             required
           />
-          <br />
-          <AccountBoxIcon />
+          </div>
+          <div className="mb-3">
+          <label>  <AccountBoxIcon />Email </label>
           <input
             value={email}
+            className="form-control"
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="Email"
             required
           />
-          <br />
-          <LockIcon />
+          </div>
+          <div className="mb-3">
+          <label>  <LockIcon />Password</label>
           <input
             value={password}
+            className="form-control"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
             required
           />
+          </div>
           <br />
-          <button type="submit" value="login" className="btn btn-primary">
+          <button type="submit" value="login" className="btn btn-dark">
             Register
           </button>
         </form>
