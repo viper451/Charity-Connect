@@ -195,11 +195,13 @@ a {
 }
 
 
+
+
 /* LOGIN REGISTER TEMPLATE */
 
 
 .user_card {
-    width: 550px;
+    width: 650px;
     height: fit-content;
      margin-top: 10%;
      margin-left: 35%;
@@ -208,7 +210,7 @@ a {
     background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #FFAFBD, #C9FFBF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     position: relative;
-    display: flex;
+  
     justify-content: center;
     flex-direction: column;
     padding: 10px;

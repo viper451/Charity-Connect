@@ -146,7 +146,7 @@ client.connect((err) => {
           contentType:'image/png'
         }
       }
-    if(req.body.age<=12)
+    if(req.body.age<=17)
     {
       if(req.body.age<=0){
       // res.send(false,"Age cannot be less then 0 enter proper Age")
@@ -393,3 +393,6 @@ client.connect((err) => {
 app.listen(3006, () => {
   console.log("Listening to port at 3006 ");
 });
+
+
+//EVENT PROBLEM STILL THERE CONSOLE SHOWING INFINITY

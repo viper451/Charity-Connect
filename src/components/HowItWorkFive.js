@@ -31,7 +31,7 @@ const HowItWorksFive = () => {
                                 <br/><br/>
                                   <h2 className='grandmaster'><b>Elite  &nbsp; &nbsp;</b> Number of events&gt;=20  </h2>
                                   <h2 className='master'><b>Master  &nbsp; &nbsp;</b> Number of events&gt;=15  </h2>
-                                  <h2 className='specialist'><b>Specialist  &nbsp; &nbsp;</b> Number of events&gt;10  </h2>
+                                  <h2 className='specialist'><b>Specialist  &nbsp; &nbsp;</b> Number of events&gt;=10  </h2>
                                   <h2 className='apprenitce'><b>Apprentice  &nbsp; &nbsp;</b> Number of events&gt;=5  </h2>
                                   <h2 className='beginner'><b>Beginner  &nbsp; &nbsp;</b> Number of events&gt;=1  </h2>
 

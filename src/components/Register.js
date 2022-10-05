@@ -88,12 +88,12 @@ const Register = () => {
     formData.append("photo", photo.files[0]);
 
     // console.log(information);
-    if (information.age > 12) {
+    if (information.age > 17) {
       setVerified(true);
     }
     console.log(JSON.stringify(formData));
 
-    if (information.age > 12) {
+    if (information.age > 17) {
       fetch("http://localhost:3006/addPeople", {
         method: "POST",
         // headers: { "Content-Type": "application/json" },
@@ -218,7 +218,7 @@ const Register = () => {
 
             <FormGroup>
               <Label for="location" style={{ color:"white"  }}>
-                Age <b>(Min AGE:12)</b>
+                Age <b>(Min AGE:17)</b>
               </Label>
               <Input
                 type="number"

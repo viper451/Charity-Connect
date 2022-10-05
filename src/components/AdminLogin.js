@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
 import "./style.css";
 import swal from 'sweetalert';
-
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import LockIcon from "@mui/icons-material/Lock";
 
 
 
@@ -47,10 +48,12 @@ const account={
             
     <div className='user_card'>
       <form onSubmit={submitHandler}>
-        <h3>LOGIN AS ADMIN</h3>
+      <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+    <h3> LOGIN AS ADMIN </h3>
+</div>
 
         <div className="mb-3">
-          <label>Email ADDRESS</label>
+          <label>  <AccountBoxIcon />Email </label>
           <input
             type="email"
             className="form-control"
@@ -64,7 +67,7 @@ const account={
         </div>
 
         <div className="mb-3">
-          <label>Password</label>
+          <label>  <LockIcon />Password</label>
           <input
             type="password"
             className="form-control"
@@ -77,11 +80,11 @@ const account={
           />
         </div>
 
-        <div className="d-grid">
+     
           <button type="submit" className="btn btn-primary">
           Sign In!
           </button>
-        </div>
+
 
       </form>
       </div>

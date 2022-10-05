@@ -45,31 +45,44 @@ function Organizationlistlogin() {
 
   return (
     <>
-      <div className="classfontfamily">
-        <h1>LOGIN AS ORGANIZATION</h1>
-      </div>
-      <div className="user_card">
+   
+  
+     
+      <div className='user_card'>
         <form onSubmit={loginUser}>
-          <AccountBoxIcon />
+        {/* <h3 >LOGIN AS ORGANIZATION</h3> */}
+        <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+    <h3> LOGIN AS ORGANIZATION </h3>
+</div>
+          <div className="mb-3">
+          <label>  <AccountBoxIcon />Email </label>
           <input
             value={email}
+            className="form-control"
             onChange={(e) => setEmail(e.target.value)}
             type="email"
             placeholder="Email"
+            required
           />
-
-          <br />
-          <LockIcon />
+</div>
+          <div className="mb3">
+                 <label>  <LockIcon />Password</label>
           <input
             value={password}
+            className="form-control"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
+            required
+
           />
-          <br />
+          </div>
+
+     <br/>
           <button type="submit" value="login" className="btn btn-primary">
             Sign In!
           </button>
+         
         </form>
       </div>
     </>

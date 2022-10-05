@@ -1,8 +1,8 @@
+import React, { useState, useEffect,useContext } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import firebaseConfig from "./firebaseConfig";
-import React, { useState, useContext} from "react";
 import "./style.css";
 import { UserContext } from "../App";
 
@@ -17,15 +17,21 @@ firebase.initializeApp(firebaseConfig);
 const Login = () => {
   var provider = new firebase.auth.GoogleAuthProvider();
   const [user, setUser] = useContext(UserContext);
+  const [datas, setData] = useState([]);
   let [event, setEvent] = useState();
   const [organizaiton, setOrganization] = useState(
     localStorage.getItem("name")
   );
+
+
+  
  
 
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/login" } };
+
+  
 
   function SignInGoogle() {
     firebase
@@ -60,6 +66,7 @@ const Login = () => {
         var credential = error.credential;
         // ...
       });
+      console.log(user)
   }
 
   // useEffect(() => {
@@ -75,6 +82,7 @@ const Login = () => {
 
   // countEvent
 
+  
   return (
     <div >
       <div className="login-box mx-auto">

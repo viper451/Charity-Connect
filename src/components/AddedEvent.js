@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../App";
 import VolunteerCard from "./VolunteerCard";
 import swal from "sweetalert";
+import MilitaryTechRoundedIcon from '@mui/icons-material/MilitaryTechRounded';
 
 const AddedEvent = () => {
   const [user, setUser] = useContext(UserContext);
@@ -9,6 +10,7 @@ const AddedEvent = () => {
   const [numevents, setNumEvents] = useState(0);
   let [color,setColor]=useState('')
   let [badge,setBadge]=useState('')
+  let [trophy,setTrophy]=useState('')
 
   useEffect(() => {
     fetch("http://localhost:3006/task?mail=" + user.mail)
@@ -69,28 +71,33 @@ const AddedEvent = () => {
   const ColorChange=()=>{
     if(numevents>=20)
      {
-      setColor('red')
+      setColor('#FF0000')
       setBadge('Elite')
+      setTrophy('warning')
      }
     else if(numevents>=15)
      {
-      setColor('orange')
+      setColor('#FFA500')
       setBadge('Master')
+      setTrophy('secondary')
      }
      else if(numevents>=10)
      {
-      setColor('cyan')
+      setColor('#00FFFF')
       setBadge('Specialist')
+      setTrophy('primary')
      }
    else  if(numevents>=5)
      {
-      setColor('green')
+      setColor('#7FFF00')
       setBadge('Apprentice')
+      setTrophy('success')
      }
   else
      {
-      setColor('grey')
+      setColor('#DCDCDC')
       setBadge('Beginner')
+      setTrophy('action')
  
      }
     //  console.log(JSON.stringify(color)+" "+numevents)
@@ -108,8 +115,10 @@ const AddedEvent = () => {
           Added Event List for&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Events{" "}
         </h4>
         {/* <h4 className="text-center my-3"> */}
+    
           <h4   className="text-center my-3" style={{ color: color }} >
-           {user.name}  
+          <MilitaryTechRoundedIcon  />
+           {user.name}   
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {numevents}
           </h4>
