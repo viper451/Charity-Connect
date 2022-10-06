@@ -103,6 +103,7 @@ const AddedEvent = () => {
     //  console.log(JSON.stringify(color)+" "+numevents)
      color=JSON.stringify(color)
      badge=JSON.stringify(badge)
+     console.log(numevents)
   }
 
 
