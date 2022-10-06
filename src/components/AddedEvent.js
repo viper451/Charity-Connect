@@ -2,15 +2,15 @@ import React, { useState, useContext, useEffect } from "react";
 import { UserContext } from "../App";
 import VolunteerCard from "./VolunteerCard";
 import swal from "sweetalert";
-import MilitaryTechRoundedIcon from '@mui/icons-material/MilitaryTechRounded';
+import MilitaryTechRoundedIcon from "@mui/icons-material/MilitaryTechRounded";
 
 const AddedEvent = () => {
   const [user, setUser] = useContext(UserContext);
   const [data, setData] = useState([]);
   const [numevents, setNumEvents] = useState(0);
-  let [color,setColor]=useState('')
-  let [badge,setBadge]=useState('')
-  let [trophy,setTrophy]=useState('')
+  let [color, setColor] = useState("");
+  let [badge, setBadge] = useState("");
+  let [trophy, setTrophy] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3006/task?mail=" + user.mail)
@@ -23,7 +23,7 @@ const AddedEvent = () => {
     ColorChange();
 
     //  console.log(numevents)
-  }, [numevents,color]);
+  }, [numevents, color]);
 
   const userEvents = async () => {
     const variable = { name: user.name };
@@ -64,65 +64,54 @@ const AddedEvent = () => {
     console.log(items);
     setData(items);
     setNumEvents(numevents - 1);
-    removeWork={removeWork}
-     
-    
+    removeWork = { removeWork };
   }
-  const ColorChange=()=>{
-    if(numevents>=20)
-     {
-      setColor('#FF0000')
-      setBadge('Elite')
-      setTrophy('warning')
-     }
-    else if(numevents>=15)
-     {
-      setColor('#FFA500')
-      setBadge('Master')
-      setTrophy('secondary')
-     }
-     else if(numevents>=10)
-     {
-      setColor('#00FFFF')
-      setBadge('Specialist')
-      setTrophy('primary')
-     }
-   else  if(numevents>=5)
-     {
-      setColor('#7FFF00')
-      setBadge('Apprentice')
-      setTrophy('success')
-     }
-  else
-     {
-      setColor('#DCDCDC')
-      setBadge('Beginner')
-      setTrophy('action')
- 
-     }
+  const ColorChange = () => {
+    if (numevents >= 20) {
+      setColor("#FF0000");
+      setBadge("Elite");
+      setTrophy("warning");
+    } else if (numevents >= 15) {
+      setColor("#FFA500");
+      setBadge("Master");
+      setTrophy("secondary");
+    } else if (numevents >= 10) {
+      setColor("#00FFFF");
+      setBadge("Specialist");
+      setTrophy("primary");
+    } else if (numevents >= 5) {
+      setColor("#7FFF00");
+      setBadge("Apprentice");
+      setTrophy("success");
+    } else {
+      setColor("#DCDCDC");
+      setBadge("Beginner");
+      setTrophy("action");
+    }
     //  console.log(JSON.stringify(color)+" "+numevents)
-     color=JSON.stringify(color)
-     badge=JSON.stringify(badge)
-     console.log(numevents)
-  }
-
+    color = JSON.stringify(color);
+    badge = JSON.stringify(badge);
+    console.log(numevents);
+  };
 
   return (
     <>
       <div>
-      <h3  className="text-center my-3" style={{ color: color }}><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{badge}</b></h3>
-        <h4 className="text-center my-3" style={{ color:"white"  }}>
-
-          Added Event List for&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Events{" "}
+        <h3 className="text-center my-3" style={{ color: color }}>
+          <b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{badge}</b>
+        </h3>
+        <h4 className="text-center my-3" style={{ color: "white" }}>
+          Added Event List
+          for&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Events{" "}
         </h4>
         {/* <h4 className="text-center my-3"> */}
-    
-          <h4   className="text-center my-3" style={{ color: color }} >
-          <MilitaryTechRoundedIcon  />
-           {user.name}   
+
+        <h4 className="text-center my-3" style={{ color: color }}>
+          <MilitaryTechRoundedIcon />
+          {user.name}
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {numevents}
-          </h4>
+        </h4>
         {/* </h4> */}
       </div>
 

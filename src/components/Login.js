@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
@@ -6,11 +6,7 @@ import firebaseConfig from "./firebaseConfig";
 import "./style.css";
 import { UserContext } from "../App";
 
-import {
-  Link,
-  useHistory,
-  useLocation,
-} from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -23,15 +19,9 @@ const Login = () => {
     localStorage.getItem("name")
   );
 
-
-  
- 
-
   const history = useHistory();
   const location = useLocation();
   const { from } = location.state || { from: { pathname: "/login" } };
-
-  
 
   function SignInGoogle() {
     firebase
@@ -66,7 +56,7 @@ const Login = () => {
         var credential = error.credential;
         // ...
       });
-      console.log(user)
+    console.log(user);
   }
 
   // useEffect(() => {
@@ -82,14 +72,13 @@ const Login = () => {
 
   // countEvent
 
-  
   return (
-    <div  className="res-login">
+    <div className="res-login">
       <div className="login-box mx-auto">
         <div className="mini-box">
           {!user.mail && organizaiton == null && (
             <>
-              <h5 className="text-center login-text my-4 " >Login With</h5>
+              <h5 className="text-center login-text my-4 ">Login With</h5>
               <button onClick={SignInGoogle} className="btn btn-custom">
                 <div className="img-logo">
                   <img
@@ -98,23 +87,23 @@ const Login = () => {
                     alt=""
                   />
                 </div>
-                <b style={{ color:"white"  }}>Login With Google</b>
+                <b style={{ color: "white" }}>Login With Google</b>
               </button>
               <p className="text-center my-3">
                 Don't have an account?{" "}
                 <a
                   target="_blank"
-                  rel="noreferrer" 
+                  rel="noreferrer"
                   href="https://accounts.google.com/signup/v2/webcreateaccount?hl=en&flowName=GlifWebSignIn&flowEntry=SignUp"
                 >
-              <b style={{ color:"white"  }}>   Create an account</b> 
+                  <b style={{ color: "white" }}> Create an account</b>
                 </a>{" "}
               </p>
 
-              <p className="text-center my-3" >
+              <p className="text-center my-3">
                 Have an account?{" "}
                 <Link to={"/organizationlistlogin"}>
-              <b style={{ color:"white"  }}>  Login as Organization{" "} </b>  
+                  <b style={{ color: "white" }}> Login as Organization </b>
                 </Link>{" "}
               </p>
             </>

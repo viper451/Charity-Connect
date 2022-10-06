@@ -127,7 +127,7 @@ export default function TableData(props) {
 
         <td style={{ textAlign: "center" }}>
           {" "}
-          <Button color="primary" onClick={handleOpen}>
+          <Button   color="primary" onClick={handleOpen}>
             Link
           </Button>
         </td>
@@ -164,7 +164,7 @@ export default function TableData(props) {
         <td style={{ textAlign: "center" }}>
           <Button
             onClick={() => props.onClickDelete(_id)}
-            className="btn btn-danger"
+            className="btn btn-sm btn-danger"
           >
             DELETE
           </Button>

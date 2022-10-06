@@ -72,7 +72,12 @@ export default function OrganizationTableData(props) {
     <tbody>
       <tr>
         <td>
-          <b onClick={handleOpenName}  style={{ textAlign: "center",color:"white" }}>{name}</b>
+          <b
+            onClick={handleOpenName}
+            style={{ textAlign: "center", color: "white" }}
+          >
+            {name}
+          </b>
           {/* <Button onClick={handleOpenName}>Open modal</Button> */}
           <Modal
             aria-labelledby="transition-modal-title"
@@ -101,12 +106,12 @@ export default function OrganizationTableData(props) {
             </Fade>
           </Modal>
         </td>
-        <td style={{ textAlign: "center",color:"white" }}>{mail}</td>
-        <td style={{ textAlign: "center",color:"white"  }}>{date}</td>
-        <td style={{ textAlign: "center",color:"white"  }}>{volnumber}</td>
-        <td style={{ textAlign: "center",color:"white"  }}>{location}</td>
-        <td style={{ textAlign: "center",color:"white"  }}>{organize}</td>
-        <td style={{ textAlign: "center",color:"white"  }}>
+        <td style={{ textAlign: "center", color: "white" }}>{mail}</td>
+        <td style={{ textAlign: "center", color: "white" }}>{date}</td>
+        <td style={{ textAlign: "center", color: "white" }}>{volnumber}</td>
+        <td style={{ textAlign: "center", color: "white" }}>{location}</td>
+        <td style={{ textAlign: "center", color: "white" }}>{organize}</td>
+        <td style={{ textAlign: "center", color: "white" }}>
           {" "}
           <Button color="primary" onClick={handleOpen}>
             Link

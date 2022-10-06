@@ -47,12 +47,15 @@ const OrganizationList = () => {
       });
   }, [datas]);
 
-    console.log(datas)
+  console.log(datas);
 
   return (
     <>
       <div className="classfontfamily">
-        <b style={{ textAlign: "center",color:"white" }}>Registered Organization List </b> <br />
+        <b style={{ textAlign: "center", color: "white" }}>
+          Registered Organization List{" "}
+        </b>{" "}
+        <br />
         <br />
       </div>
       <Table

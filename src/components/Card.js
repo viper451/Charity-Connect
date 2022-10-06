@@ -11,16 +11,17 @@ const Card = (props) => {
         className="card card-custom m-4"
         style={{ width: "14rem", minHeight: "12rem" }}
       >
-           <div className="gradient-border">
-        <img className="card-img-top" src={picture} alt="Card  cap" />
-     
-        <div className="card-body">
-      
-          <p className="card-text text-center" style={{ textDecoration: 'none' }} >
+        <div className="gradient-border">
+          <img className="card-img-top" src={picture} alt="Card  cap" />
 
-            {name}
+          <div className="card-body">
+            <p
+              className="card-text text-center"
+              style={{ textDecoration: "none" }}
+            >
+              {name}
             </p>
-            </div>
+          </div>
         </div>
       </div>
     </Link>
