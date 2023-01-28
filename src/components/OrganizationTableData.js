@@ -11,12 +11,12 @@ import Fade from "@mui/material/Fade";
 export default function OrganizationTableData(props) {
   // console.log(props)
   const [information, setInformation] = useState(props.info);
-  useEffect(() => {
-    setInformation(props.info);
-  }, [props.info]);
+  // useEffect(() => {
+
+  // }, []);
 
   //  console.log(information)
-  console.log(typeof information);
+  // console.log(typeof information);
 
   const {
     name,

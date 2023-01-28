@@ -7,36 +7,6 @@ import "./style.css";
 import { Table, Thead } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 
-const onClickDelete = async (id) => {
-  const variables = {
-    id: id,
-  };
-
-  await axios.post(
-    "http://localhost:3006/deleteActivityOrganization",
-    variables
-  );
-  // .then(response => {
-  //     if (response.data.success) {
-  //        console.log("DELETED")
-  //     } else {
-  //         alert('Failed to Remove From Favorites')
-  //     }
-  // })
-  //       console.log(response)
-  //        useEffect(()=>{
-  //    TableData()
-  //  },[information]);
-  swal({
-    title: "ORGNAZATION!",
-    text: "Deleted Successfully!",
-    icon: "success",
-    dangerMode: true,
-    button: false,
-    timer: 850,
-  });
-};
-
 const OrganizationList = () => {
   const [datas, setData] = useState([]);
   useEffect(() => {
@@ -45,9 +15,32 @@ const OrganizationList = () => {
       .then((data) => {
         setData(data);
       });
-  }, [datas]);
+  }, []);
 
   console.log(datas);
+
+  const onClickDelete = async (id) => {
+    const variables = {
+      id: id,
+    };
+    setData([]);
+    await axios.post(
+      "http://localhost:3006/deleteActivityOrganization",
+      variables
+    );
+    let newOrganizationData = datas.filter((data) => data._id !== id);
+    console.log(newOrganizationData);
+    setData(newOrganizationData);
+
+    swal({
+      title: "ORGNAZATION!",
+      text: "Deleted Successfully!",
+      icon: "success",
+      dangerMode: true,
+      button: false,
+      timer: 850,
+    });
+  };
 
   return (
     <>

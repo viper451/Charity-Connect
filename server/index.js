@@ -1,31 +1,29 @@
 const express = require("express"); //express
 const app = express(); // express --> app
 const bodyParser = require("body-parser"); // body parser
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 var cors = require("cors"); // cors
 app.use(cors()); // cors --> app
 app.use(bodyParser.json()); // body parser --> app
 app.use(bodyParser.urlencoded({ extended: false })); // use body parser middleware for url encoded
 const ObjectId = require("mongodb").ObjectID;
 require("dotenv").config();
-const multer=require("multer")
-
+const multer = require("multer");
 
 const MongoClient = require("mongodb").MongoClient; //required always
 
-const uri = process.env.REACT_APP_MONGO_URL;
+ const uri = process.env.REACT_APP_MONGO_URL;
+// const uri =
+//   "mongodb+srv://Farhan:BHDTbaQzwjaXPCme@cluster0.vjw3cqb.mongodb.net/test";
 
-const storage=multer.diskStorage({
-  destination:function(req,file,callback){
-    callback(null,'../public/images');
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, "../public/images");
   },
-  filename:(req,file,callback)=>{
-    callback(null,uuidv4()+'-'+Date.now()+file.originalname);
-
-  }
-})
-
-
+  filename: (req, file, callback) => {
+    callback(null, uuidv4() + "-" + Date.now() + file.originalname);
+  },
+});
 
 // const multerStorage = multer.diskStorage({
 //   destination: (req, file, cb) => {
@@ -37,21 +35,16 @@ const storage=multer.diskStorage({
 //   }
 // });
 
-
-const fileFilter=(req,file,cb)=>{
-  const allowFileTypes=['image/jpeg','image/jpg','image/png']
-  if(allowFileTypes.includes(file.mimetype))
-  {
-    cb(null,true)
+const fileFilter = (req, file, cb) => {
+  const allowFileTypes = ["image/jpeg", "image/jpg", "image/png"];
+  if (allowFileTypes.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(null, false);
   }
-  else{
-    cb(null,false)
+};
 
-    
-  }
-}
-
-let upload=multer({storage,fileFilter});
+let upload = multer({ storage, fileFilter });
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -59,14 +52,18 @@ const client = new MongoClient(uri, {
 }); //unified topology set
 client.connect((err) => {
   const collection = client.db("volunteer").collection("volunteerCollection"); //connecting the collection
-  const organization = client.db("volunteer").collection("organizationCollection"); //all orgnaization detail
+  const organization = client
+    .db("volunteer")
+    .collection("organizationCollection"); //all orgnaization detail
   const event = client.db("volunteer").collection("organizationevent"); //ALL EVENT POSTED BY THE ORGANIZAIOTN
   const addeventinfo = client.db("volunteer").collection("addeventinfo"); //ADD INFORMATION BY ADMIN
   // perform actions on the collection object
-  // collection('').find({}).sort({_id:-1}) 
+  // collection('').find({}).sort({_id:-1})
   // loading data
   app.get("/info", (req, res) => {
-    collection.find({}).sort({_id:-1})  //find all data from database
+    collection
+      .find({})
+      .sort({ _id: -1 }) //find all data from database
       .toArray((err, document) => {
         // to array is being used to load all data from db
         res.send(document); //data send to html
@@ -75,7 +72,9 @@ client.connect((err) => {
 
   //GET ORGANIZATION DATA
   app.get("/organizationinfo", (req, res) => {
-    event.find({}).sort({_id:-1}) //find all data from database
+    event
+      .find({})
+      .sort({ _id: -1 }) //find all data from database
       .toArray((err, document) => {
         // to array is being used to load all data from db
         res.send(document); //data send to html
@@ -122,87 +121,96 @@ client.connect((err) => {
   });
 
   // sending/posting data to database
-  app.post("/addPeople",upload.single("photo"), (req, res) => {
+  app.post("/addPeople", upload.single("photo"), (req, res) => {
     const pd = req.body;
-      console.log(pd);
-      console.log(req.file)
-      if(req.file===undefined)
-      {
-       res.send({data:false,statement:"Please Upload A file for verification"}); return;
-      }
+    console.log(pd);
+    // console.log(req.file)
+    // if(req.file===undefined )
+    // {
+    //  res.send({data:false,statement:"Please Upload A file for verification"}); return;
+    // }
 
-      const newArticle={
-        name:req.body.name,
-        date:req.body.date,
-        mail:req.body.mail,
-        age:req.body.age,
-        description:req.body.description,
-        organize:req.body.organize,
-        location:req.body.location,
-        status:req.body.status,
-        fileName:{
-          data:req.file.filename,
-          path:req.file.path,
-          contentType:'image/png'
-        }
+    const newArticle = {
+      name: req.body.name,
+      date: req.body.date,
+      mail: req.body.mail,
+      age: req.body.age,
+      description: req.body.description,
+      organize: req.body.organize,
+      location: req.body.location,
+      status: req.body.status,
+      // fileName:{
+      //   data:req.file.filename===undefined,
+      //   path:req.file.path===undefined?"..\client\public\images\05e54a71-a45b-4988-915e-85ea004cf256-1662626339588Passport.png":req.file.path,
+      //   contentType:'image/png'
+      // }
+      fileName: {
+        data: req.body.filename.filename,
+        path:
+          req.body.filename.filename === undefined
+            ? "..clientpublicimages\05e54a71-a45b-4988-915e-85ea004cf256-1662626339588Passport.png"
+            : req.body.filename.filename,
+        contentType: "image/png",
+      },
+    };
+    if (req.body.age <= 17) {
+      if (req.body.age <= 0) {
+        // res.send(false,"Age cannot be less then 0 enter proper Age")
+        res.send({
+          data: false,
+          statement: "Age cannot be less then 0 enter proper Age",
+        });
+        return;
+      } else {
+        res.send({ data: false, statement: "Too Young to Volunteer" });
       }
-    if(req.body.age<=17)
-    {
-      if(req.body.age<=0){
-      // res.send(false,"Age cannot be less then 0 enter proper Age")
-      res.send({ data: false, statement:"Age cannot be less then 0 enter proper Age" })
-      return;}
-      else{
-        res.send({ data: false,statement:"Too Young to Volunteer" })
-      }
-
-
     }
-    console.log(req.file===undefined)
-   
+    console.log(req.file === undefined);
+
     collection.insertOne(newArticle).then((result) => {
-      res.send({data:true});
+      res.send({ data: true });
     });
   });
 
   //ADD ORGANIZATION EVENT AND DISPLAY IT IN ADMIN
-  app.post("/eventinfoadd",upload.single("photo"), (req, res) => {
-
+  app.post("/eventinfoadd", upload.single("photo"), (req, res) => {
     const pd = req.body;
-     console.log(pd);
+    console.log(pd);
     // console.log(req.file)
-      if(req.file===undefined)
-      {
-       res.send({data:false,statement:"Please Upload A file for verification"}); return;
-      }
-
-    if(req.body.volnumber<=0)
-    {
-      res.send({ data: false,statement:"Enter Proper Number of Volunteer(More then 0 😒)" });return;
-    }
-    
-    const OrganizationInfo={
-      name:req.body.name,
-      date:req.body.date,
-      mail:req.body.mail,
-      volnumber:req.body.volnumber,
-      description:req.body.description,
-      organize:req.body.organize,
-      location:req.body.location,
-
-      fileName:{
-        data:req.file.filename,
-        path:req.file.path,
-        contentType:'image/png'
-      }
+    if (req.file === undefined) {
+      res.send({
+        data: false,
+        statement: "Please Upload A file for verification",
+      });
+      return;
     }
 
+    if (req.body.volnumber <= 0) {
+      res.send({
+        data: false,
+        statement: "Enter Proper Number of Volunteer(More then 0 😒)",
+      });
+      return;
+    }
 
+    const OrganizationInfo = {
+      name: req.body.name,
+      date: req.body.date,
+      mail: req.body.mail,
+      volnumber: req.body.volnumber,
+      description: req.body.description,
+      organize: req.body.organize,
+      location: req.body.location,
 
-
+      fileName: {
+        data: req.file.filename,
+        path: req.file.path,
+        contentType: "image/png",
+      },
+    };
 
     event.insertOne(OrganizationInfo).then((result) => {
-      res.send({data:true});
+      res.send({ data: true });
     });
   });
 
@@ -247,13 +255,11 @@ client.connect((err) => {
           .status(200)
           .json({ success: true, statement: "Login success", info: user });
       } else {
-        return res
-          .status(401)
-          .json({
-            success: false,
-            statement: "Invalid credencial",
-            info: user,
-          });
+        return res.status(401).json({
+          success: false,
+          statement: "Invalid credencial",
+          info: user,
+        });
       }
     });
   });
@@ -270,7 +276,7 @@ client.connect((err) => {
   });
 
   app.post("/deleteActivityOrganization", (req, res) => {
-     console.log(req.body);
+    console.log(req.body);
 
     event.findOneAndDelete({ _id: ObjectId(req.body.id) }).then((err, doc) => {
       if (err) return res.send({ success: false, err });
@@ -278,57 +284,51 @@ client.connect((err) => {
     });
   });
 
-
   app.post("/updateActivity", (req, res) => {
     console.log(req.body);
     // const replacement = {
     //   title: `The Cat from Sector ${Math.floor(Math.random() * 1000) + 1}`,
     // };
 
-    const filter={_id:ObjectId(req.body.id)}
-   let newstatus;
-    if(req.body.status==="Accepted")
-    {
-      newstatus={
-        $set:{
-          status:"Waiting",
-        }
+    const filter = { _id: ObjectId(req.body.id) };
+    let newstatus;
+    if (req.body.status === "Accepted") {
+      newstatus = {
+        $set: {
+          status: "Waiting",
+        },
+      };
+    } else {
+      newstatus = {
+        $set: {
+          status: "Accepted",
+        },
       };
     }
-    else{
-     newstatus={
-      $set:{
-        status:"Accepted",
-      }
-    };
-  }
-   
-  collection.updateOne(filter, newstatus)
-      .then((err, doc) => {
-        if (err) return res.send({ success: false, err });
-        res.send({ success: true, doc });
-      });
+
+    collection.updateOne(filter, newstatus).then((err, doc) => {
+      if (err) return res.send({ success: false, err });
+      res.send({ success: true, doc });
+    });
   });
 
+  app.post("/eventadd", upload.single("photo"), (req, res) => {
+    console.log(req.file);
 
-  app.post("/eventadd",upload.single("photo"),(req,res)=>{
-    console.log(req.file)
-    
-     const newArticle={
-      title:req.body.title,
+    const newArticle = {
+      title: req.body.title,
       orgnaizationname: req.body.orgnaizationname,
       description: req.body.description,
       fileName: {
-        data:req.file===undefined?"No banner":req.file.filename,
-        path:req.file===undefined?"No path foundefined ":req.file.path,
-        contentType:'image/png'}
-     };
-           
+        data: req.file === undefined ? "No banner" : req.file.filename,
+        path: req.file === undefined ? "No path foundefined " : req.file.path,
+        contentType: "image/png",
+      },
+    };
 
-      
-     addeventinfo.insertOne(newArticle).then((req,response) => {
-      if(err) return res.send({success:false,err});
-      res.send({success:true});
+    addeventinfo.insertOne(newArticle).then((req, response) => {
+      if (err) return res.send({ success: false, err });
+      res.send({ success: true });
     });
   });
 
@@ -342,25 +342,21 @@ client.connect((err) => {
   });
 
   app.post("/numEvents", (req, res) => {
-     console.log(req.body)
-     console.log()
+    console.log(req.body);
+    console.log();
     // collection.find({ 'name': req.body.name })
     //     .exec((err, eventnumber) => {
     //         if (err) return res.status(400).send(err);
     //         return res.status(200).json({ success: true,eventnumber })
     //     })find().exec
-    collection.find({ 'name': req.body.name }).toArray((err, document) => {
-       console.log(document.length)
-      res.send({data:true,statement:document.length}); return;
-  //   Model.find().exec(function (err, results) {
-  // var count = results.length
-});
-  })
-
-
-
-
-
+    collection.find({ name: req.body.name }).toArray((err, document) => {
+      console.log(document.length);
+      res.send({ data: true, statement: document.length });
+      return;
+      //   Model.find().exec(function (err, results) {
+      // var count = results.length
+    });
+  });
 
   // load single data
   app.get("/product/:id", (req, res) => {
@@ -393,6 +389,5 @@ client.connect((err) => {
 app.listen(3006, () => {
   console.log("Listening to port at 3006 ");
 });
-
 
 //EVENT PROBLEM STILL THERE CONSOLE SHOWING INFINITY
