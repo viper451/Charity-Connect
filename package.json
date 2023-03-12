@@ -21,6 +21,7 @@
     "react": "^17.0.1",
     "react-badges": "^1.0.1",
     "react-bootstrap": "^2.5.0",
+    "react-csv": "^2.2.2",
     "react-dom": "^17.0.1",
     "react-font": "^1.2.1",
     "react-moment": "^1.1.2",

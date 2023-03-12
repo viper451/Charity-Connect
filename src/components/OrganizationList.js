@@ -6,6 +6,8 @@ import swal from "sweetalert";
 import "./style.css";
 import { Table, Thead } from "react-super-responsive-table";
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
+import { CSVLink, CSVDownload } from "react-csv";
+import { Button } from "reactstrap";
 
 const OrganizationList = () => {
   const [datas, setData] = useState([]);
@@ -49,8 +51,12 @@ const OrganizationList = () => {
           Registered Organization List{" "}
         </b>{" "}
         <br />
-        <br />
       </div>
+      <div className="d-flex justify-content-center">
+      <CSVLink data={datas}><Button outline color="warning">Download Excel file</Button></CSVLink>
+      </div>
+      <br />
+        <br />
       <Table
         style={{
           maxWidth: "1000px",
